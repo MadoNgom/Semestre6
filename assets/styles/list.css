@@ -1,0 +1,180 @@
+.listproduit{
+    display: grid;
+    /*ca depend du taille de l'ecran fais moi une card de 18rem*/
+    grid-template-columns: repeat(auto-fit,18rem);
+    grid-gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+}
+.userlist{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid #DBF5BA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.categorielist{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid #DBF5BA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.commandelist{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid #DBF5BA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.listproduit img{
+    width: 287px;
+    height: 300px;
+    object-fit: cover;
+
+}
+.mySlide{
+    height: 400px;
+    object-fit: cover;
+}
+
+.panierlist{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid #DBF5BA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 2px solid black ;
+}
+.commandelist{
+    width: 70%;
+    margin: 50px auto;
+    border: 1px solid #DBF5BA;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border: 2px solid black ;
+}
+.img{
+    width: 80px;
+    height: 80px;
+}
+
+.header
+{
+    background-image: url(../image/en-tete_Plan\ de\ travail\ 1.jpg);
+    background-size: cover;
+    height: 920px;
+    background-repeat: no-repeat;
+    margin-bottom: 40px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.conteneur{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.slogan{
+    width: 40%;
+    float: left;
+    flex-direction: column;
+    padding: 30px;
+    margin-top: 140px;
+    color: rgb(10, 10, 10); 
+    
+}
+.slogan h2{
+    
+    font-size: 3.5rem;
+    font-weight: 600;
+    color: #2A454b;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.slogan h5{
+    padding-top: 10px;
+    color: #B60017;
+    font-weight: 600;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.slogan.btn{
+   display: inline-block;
+   border: 1px solid #B60017;
+   color: #B60017;
+   cursor: pointer;
+   font-size: 1.7rem;
+   border-radius: .5rem;
+   position: relative;
+   overflow: hidden;
+   z-index: 0;
+   margin-top: 1rem;
+   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.slogan.btn:hover{
+    color: #fff;
+    background-color:#B60017;
+}
+
+.image{
+    width: 50%;
+  float: left;
+   
+}
+.logo{
+    width: 100px;
+    height: 100px;
+}
+.image img{
+    width: 767px;
+    height: 706px;
+    object-fit: cover;
+    padding: 1rem;
+    animation: float 3s linear infinite;
+    }
+    @keyframes float{
+        0%,
+        100%{
+            transform: translateY(0rem);
+    }
+    50%{
+        transform: translateY(3rem);
+    }
+    }
+    
+   
+    .totalM{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .montantT{
+        width: 100%;
+        display: flex;
+        float: left;
+        justify-content: center;
+    }
+    .montantT p{
+        border: 1px solid #B60017;
+        cursor: pointer;
+    }
+    .montantT p:hover{
+        background-color: #B60017;
+        color: white;
+    }
+    .butunV{
+        width: 100%;
+        display: flex;
+        float: left;
+        justify-content: center;
+       
+    }
+    .butunV a{
+        border: 1px solid #B60017;
+        width: 73px;
+        height: 34px;
+        color: black;
+    }
+    .butunV a:hover{
+        background-color: #B60017;
+        color: white;
+    }
+

@@ -1,0 +1,71 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+footer {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.carousel-item {
+  position: relative;
+}
+.custom-caption {
+  position: absolute;
+  top: 40%;
+  left: 10%;
+  transform: translateY(-50%);
+  text-align: left;
+  background-color: rgba(0, 0, 0, 0.5);
+  max-width: 500px;
+  padding: 10px;
+  border-radius: 5px;
+  color: white;
+  padding: 1.5rem 1rem;
+}
+.c-item {
+  height: 450px;
+}
+.c-img {
+  object-fit: cover;
+  height: 100%;
+}
+.number {
+  padding: 2px 5px;
+  cursor: pointer;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+}
+.box {
+  position: relative;
+}
+.box img {
+  width: 150px;
+}
+
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(autofit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+.beauty-Product img {
+  width: 100%;
+}
+.box-2 {
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: 0.5s ease-in-out;
+  overflow: hidden;
+  cursor: pointer;
+}
+.box-2:hover {
+  transform: scale(1.1);
+}
+.percent {
+  color: rgb(105, 220, 105);
+}
