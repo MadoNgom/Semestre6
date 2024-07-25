@@ -136,21 +136,24 @@ $produits = $transaction->getAllProduct();
             <div class="container">
                 <!-- pARCOURIR LES Produits  -->
                 <div class="liste-produts product">
+                <?php foreach ($produits as $key => $produit) : ?>
                     <!-- Afficher le produit-->
                     <div class="box py-2 py-4">
                         <!-- <span>40%</span> -->
                         <div class="card-img">
-                            <img src="./assets/image/img6.png" width="150px" height="100px" alt="" />
+                        <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
                         </div>
+
                         <div class="card-body mb-2">
-                            <h6>Pull coton resistant</h6>
-                            <h5>14.500 FCFA</h5>
+                            <h6><?= $produit['nom'] ?></h6>
+                            <h5><?= $produit['prixU'] ?></h5>
                             <div class="d-flex justify-content-between align-items-center">
-                                <del class="text-danger">15.000</del>
-                                <i class="bi bi-cart-fill fs-4 text-warning"></i>
+                                <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
                             </div>
                         </div>
                     </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -166,21 +169,23 @@ $produits = $transaction->getAllProduct();
             <!-- Parcourir Produits beauté -->
             <div class="liste-produts product">
                 <!-- Afficher les produitq -->
+                <?php foreach ($produits as $key => $produit) : ?>
                 <div class="box box-2 py-2 px-2 rounded-2 mt-1">
                     <span class="percent"> -40%</span>
                     <div class="card-img">
                         <!-- l'image du produit -->
-                        <img src="./assets/image/img1.png" width="150px" height="100px" alt="" />
+                        <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
                     </div>
                     <div class="card-body mb-2">
                         <!-- nom du produit -->
-                        <p>Pull coton resistant</p>
+                        <p><?= $produit['nom'] ?></p>
                         <!-- Prix du produit -->
-                        <h5>14.500 FCFA</h5>
+                        <h5><?= $produit['prixU'] ?></h5>
                         <!-- reduction prix -->
-                        <del class="text-danger">15.000</del>
+                        <del class="text-danger"><?= $produit['prixU'] ?></del>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>
@@ -202,13 +207,14 @@ $produits = $transaction->getAllProduct();
             <h3 class="text-center text-dark mt-2">Nouvelles Arrivages de shoes </h3>
             <div class="row">
                 <!-- Parcourir liste Produits chaussures  -->
+                <?php foreach ($produits as $key => $produit) : ?>
                 <div class="col-md-4">
                     <div class="d-flex justify-content-center align-items-center border-1">
                         <div class="cart p-2">
                             <!-- AFFicher Image -->
-                            <img src="./assets/image/img1.png" width="150px" alt="" />
+                            <img src="assets/image/<?= $produit['image'] ?>"" width="150px" alt="" />
                             <!-- Nom dU PRODUIT -->
-                            <h4 class="title">Nike Air 20</h4>
+                            <h4 class="title"><?= $produit['nom'] ?></h4>
                             <!-- Etoiles -->
                             <div class="rating text-warning">
                                 <i class="bi bi-star-fill"></i>
@@ -220,14 +226,15 @@ $produits = $transaction->getAllProduct();
                             <div class="text-center my-3">
                                 <div class="mx-3">
                                     <!-- reduction -->
-                                    <span><del>25.000 FCFA</del></span> <br />
+                                    <span><del><?= $produit['prixU'] ?></del></span> <br />
                                     <!-- Prixs -->
-                                    <span class="text-warning">20.000 FCFA</span>
+                                    <span class="text-warning"><?= $produit['prixU'] ?></span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php endforeach; ?>
             </div>
         </section>
     </section>

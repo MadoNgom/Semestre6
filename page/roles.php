@@ -3,38 +3,52 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-function isAdmin() {
-    return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'ADMIN';
-}
-
-function isBoutiquier() {
-    return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'BOUTIQUIER';
-}
-
-function isClient() {
-    return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'CLIENT';
-}
-
-function redirectToLogin() {
-    header('Location: ../views/connexion.php');
-    exit;
-}
-
-function checkAdmin() {
-    if (!isAdmin()) {
-        redirectToLogin();
+if (!function_exists('isAdmin')) {
+    function isAdmin() {
+        return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'ADMIN';
     }
 }
 
-function checkBoutiquier() {
-    if (!isBoutiquier()) {
-        redirectToLogin();
+if (!function_exists('isBoutiquier')) {
+    function isBoutiquier() {
+        return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'BOUTIQUIER';
     }
 }
 
-function checkClient() {
-    if (!isClient()) {
-        redirectToLogin();
+if (!function_exists('isClient')) {
+    function isClient() {
+        return isset($_SESSION['User']['profile']) && $_SESSION['User']['profile'] === 'CLIENT';
+    }
+}
+
+if (!function_exists('redirectToLogin')) {
+    function redirectToLogin() {
+        header('Location: ../views/connexion.php');
+        exit;
+    }
+}
+
+if (!function_exists('checkAdmin')) {
+    function checkAdmin() {
+        if (!isAdmin()) {
+            redirectToLogin();
+        }
+    }
+}
+
+if (!function_exists('checkBoutiquier')) {
+    function checkBoutiquier() {
+        if (!isBoutiquier()) {
+            redirectToLogin();
+        }
+    }
+}
+
+if (!function_exists('checkClient')) {
+    function checkClient() {
+        if (!isClient()) {
+            redirectToLogin();
+        }
     }
 }
 ?>
