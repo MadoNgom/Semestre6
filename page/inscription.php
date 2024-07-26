@@ -6,6 +6,7 @@ $msg = "";
 $transaction = new DBTransaction();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
+
     $nomComplet = trim($_POST['nomComplet']);
     $email = trim($_POST['email']);
     $pwd = trim($_POST['pwd']);
@@ -16,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $msg = "Adresse email invalide";
     } else {
+        var_dump($nomComplet, $email, $pwd); // Ajoutez ceci pour voir les valeurs avant d'appeler la fonction
         $result = $transaction->inscription($nomComplet, $email, $pwd, "CLIENT");
         if ($result == 0) {
             $msg = "Données invalides";
@@ -25,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
         }
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -47,40 +50,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
     <section class="banner">
         <div class="container d-flex justify-content-center align-items-center">
             <!-- Formulaire inscription -->
-            <form action="" class="form shadow mt-4 bg-white">
-                <div class="text-center p-6">
-                    <h3 class="mx-2">inscription</h3>
-                </div>
-                <div class="form-group my-4">
-                    <label for="email">Nom Complet</label> <br />
-                    <input type="text" name="text" class="form-control p-2" placeholder="Nom complet" />
-                </div>
-                <div class="form-group my-4">
-                    <label for="email">Votre Email</label> <br />
-                    <input type="email" name="email" class="form-control p-2" placeholder="Entrez votre email" />
-                </div>
-                <div class="form-group my-3">
-                    <label for="pwd">Votre mot de passe</label>
-                    <input type="password" name="pwd" class="form-control p-2" placeholder="Entrez votre mot de passe" />
-                </div>
-                <div class="fs-6 text-left">
-                    <a href="#">Mot de passe oublié?</a>
-                </div>
-                <div class="form-group fs-6 text-black-50">
-                    <input type="checkbox" name="checkbox" id="" /> Se souvenir de moi
-                    <button class="btn text-white p-2 w-100 btn-dark rounded-2 mt-3" name="click">
-                        Se connecter
-                    </button>
-                </div>
-                <p class="text-black-50 text-center mt-1">Ou</p>
-                <div class="d-flex justify-content-center align-items-center">
-                    <img src="../../../assets/images/google.png" alt="" width="30px" />
-                    <img src="../../../assets/images/face.png" alt="" width="30px" class="mx-3" />
-                </div>
-                <p class="mt-2 text-black-50 fs-6">
-                    Vous n'avez pas de compte? <a href="">Inscrivez-vous</a>
-                </p>
-            </form>
+            <form action="inscription.php" method="POST" class="form shadow mt-4 bg-white">
+    <div class="text-center p-6">
+        <h3 class="mx-2">Inscription</h3>
+    </div>
+    <div class="form-group my-4">
+        <label for="nomComplet">Nom Complet</label> <br />
+        <input type="text" name="nomComplet" class="form-control p-2" placeholder="Nom complet" />
+    </div>
+    <div class="form-group my-4">
+        <label for="email">Votre Email</label> <br />
+        <input type="email" name="email" class="form-control p-2" placeholder="Entrez votre email" />
+    </div>
+    <div class="form-group my-3">
+        <label for="pwd">Votre mot de passe</label>
+        <input type="password" name="pwd" class="form-control p-2" placeholder="Entrez votre mot de passe" />
+    </div>
+    <div class="fs-6 text-left">
+        <a href="#">Mot de passe oublié?</a>
+    </div>
+    <div class="form-group fs-6 text-black-50">
+        <input type="checkbox" name="checkbox" id="" /> Se souvenir de moi
+        <button type="submit" class="btn text-white p-2 w-100 btn-dark rounded-2 mt-3" name="click">
+            S'inscrire
+        </button>
+    </div>
+      <p class="text-black-50 text-center mt-1">Ou</p>
+      <div class="d-flex justify-content-center align-items-center">
+        <img src="../../../assets/images/google.png" alt="" width="30px" />
+        <img src="../../../assets/images/face.png" alt="" width="30px" class="mx-3" />
+      </div>
+       <p class="mt-2 text-black-50 fs-6">
+        Vous avez déjà un compte? <a href="connexion.php">Connectez-vous</a>
+       </p>
+       </form>
+
         </div>
     </section>
 </body>

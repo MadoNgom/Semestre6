@@ -79,16 +79,17 @@ class DBTransaction{
         }
     }
 
-public function inscription($nomComplet,$email,$pwd,$profile){ 
-    try{
-            $result = $this->database->query("INSERT INTO `User` VALUE(null,'$nomComplet','$email','$pwd','$profile')");
-            // renvoi 0 si erreur ou n si op d'erreur
-            $result->fetch(); 
-            return 1;
-        }catch(\PDOException $th) {
-            return 0;
+    public function inscription($nomComplet, $email, $pwd, $profile) {
+        try {
+            $stmt = $this->database->prepare("INSERT INTO `User` (`nomComplet`, `email`, `pwd`, `profile`) VALUES (?, ?, ?, ?)");
+            $stmt->execute([$nomComplet, $email, $pwd, $profile]);
+            return 1; // succès
+        } catch (\PDOException $th) {
+            // Vous pouvez également enregistrer l'erreur pour le débogage
+            return 0; // échec
         }
-}
+    }
+    
 
 
 public function connexion($email,$pwd){
