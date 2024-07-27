@@ -216,7 +216,7 @@ $users = $transaction->getAlluser();
       </div>
 
       <table class="table table-striped table-centered mb-0">
-         <thead class="bg-dark">
+         <thead class="bg-dark text-white">
             <tr>
                <th>Nom Complet</th>
                <th>Email</th>
@@ -232,9 +232,8 @@ $users = $transaction->getAlluser();
                <tr>
                   <td><?= $user['nomComplet'] ?></td>
                   <td><?= $user['email'] ?></td>
-                  <td><?= $user['adresse'] ?></td>
                   <td><?= $user['profile'] ?></td>
-                  <td><?= $user['date'] ?></td>
+
                   <td>
                      <a href="editUser.php?idUser=<?= $user['id'] ?>" class="text-success mx-2 fs-5 text-decoration-none"><i class="bi bi-pencil-square"></i></a>
                      <a href="deleteuser.php?iduser=<?= $user['id'] ?>" class="text-danger text-decoration-none"><i class="bi bi-trash"></i></a>

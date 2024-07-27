@@ -31,96 +31,71 @@ $commandes = $transaction->getAllCommande();
 </head>
 
 <body>
-
-   <header class="bg-dark text-white shadow sticky-top py-2">
+   <!-- Header start -->
+   <header class="bg-light text-dark shadow sticky-top py-2">
       <div class="container-fluid">
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
-            <div class=" d-none d-sm-none d-md-block">
+            <div class="d-none d-sm-none d-md-block">
                <div class="nav-brand d-flex justify-content-center lign-items-center">
-                  <h4 class="nav-brand mx-2">
-                     Finshop
-                  </h4>
-                  <img src="assets/image/logo.png" alt="">
+                  <h4 class="nav-brand mx-2">Finshop</h4>
                </div>
             </div>
             <!-- SEARCH BAR -->
-            <div class=" my-auto">
+            <div class="my-auto">
                <form action="" role="Search">
                   <div class="form-group d-flex my-2">
-                     <input type="search" placeholder="Rechercher un produit" class="form-control">
-                     <button type="submit" class="btn bg-danger text-white mx-1">
+                     <input type="search" placeholder="Rechercher un produit" class="form-control" />
+                     <button type="submit" class="btn bg-warning text-white mx-1">
                         <i class="bi bi-search"></i>
                      </button>
                   </div>
                </form>
             </div>
-            <div class=" my-auto">
-               <ul class="nav  justify-content-end">
+            <div class="my-auto">
+               <ul class="nav justify-content-end">
+                  <?php if (isBoutiquier()) : ?>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark" href="produits/listproduit.php">
+                           Mes Produits</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark" href="../Categorie/read.php">
+                           Categories</a>
+                     </li>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark" href="./commandeclient.php">Commande clients</a>
+                     </li>
+                  <?php endif; ?>
+                  <?php if (isAdmin()) : ?>
+                     <li class="nav-item">
+                        <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                     </li>
+                  <?php endif; ?>
                   <li class="nav-item">
-                     <a href="../panier/panier.php" class="nav-link text-white">
-                        <i class="bi bi-cart4"></i> Panier
+                     <a href="" class="nav-link text-dark">
+                        <div class="cart">
+                           Panier
+                           <i class="bi bi-cart-fill"></i>
+                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                        </div>
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link text-white" href="../panier/commande.php"><i class="bi bi-basket2-fill"></i> Commandes</a>
-                  </li>
-                  </li>
-                  <?php if (isBoutiquier()) : ?>
-                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../produits/listproduit.php"><i class="bi bi-cart4"></i> Produits</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../Categorie/read.php"><i class="bi bi-cart4"></i> Categories</a>
-                     </li>
-                     <li class="nav-item">
-                        <a class="nav-link text-white" href="commandeclient.php"><i class="bi bi-cart4"></i> Commande des clients</a>
-                     </li>
-                  <?php endif; ?>
-
-                  <?php if (isAdmin()) : ?>
-                     <li class="nav-item">
-                        <a class="nav-link text-white" href="../users/listboutiquier.php">
-                           <i class="bi bi-heart"></i> gestion utilisateurs
-                        </a>
-                     </li>
-                  <?php endif; ?>
-                  <li class="nav-item">
-                     <a class="btn btn-danger" href="../page/connexion.php">
+                     <a class="btn btn-dark text-white" href="./page/connexion.php">
                         <i class="bi bi-person-fill"></i> connexion
                      </a>
                   </li>
-                  <a class="navbar-brand  nav-link text-white d-block d-sm-block d-md-none d-lg-none" href="#">
+                  <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
                      Finshop
                   </a>
                </ul>
             </div>
          </div>
-         <nav class="navbar navbar-expand-lg">
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-               <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                  <li class="nav-item">
-                     <a class="nav-link text-white" href="../index.php">Home</a>
-                  </li>
-                  <li class="nav-item ">
-                     <a class="nav-link text-white" href="#">All Categories</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link text-white" href="../page/categorieByHomme.php"> Hommes</a>
-                  </li>
-
-                  <li class="nav-item">
-                     <a class="nav-link text-white" href="../page/categorieByFemme.php">Femmes</a>
-                  </li>
-               </ul>
-            </div>
-         </nav>
       </div>
    </header>
+   <!-- HEADER END -->
+
 
    <div class="container-fluid">
       <table action="commandeclient.php" method="POST" class="table commandelist">

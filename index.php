@@ -48,18 +48,24 @@ $produits = $transaction->getAllProduct();
                 </div>
                 <div class="my-auto">
                     <ul class="nav justify-content-end">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="">Commandes</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="">
-                                Produits</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="../Categorie/read.php">
-                                Categories</a>
-                        </li>
+                        <?php if (isBoutiquier()) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="produits/listproduit.php">
+                                    Mes Produits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="Categorie/read.php">
+                                    Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (isAdmin()) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                            </li>
+                        <?php endif; ?>
                         <li class="nav-item">
                             <a href="" class="nav-link text-dark">
                                 <div class="cart">
@@ -70,7 +76,7 @@ $produits = $transaction->getAllProduct();
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn btn-dark text-white" routerLink="components/connexion">
+                            <a class="btn btn-dark text-white" href="./page/connexion.php">
                                 <i class="bi bi-person-fill"></i> connexion
                             </a>
                         </li>
@@ -136,23 +142,23 @@ $produits = $transaction->getAllProduct();
             <div class="container">
                 <!-- pARCOURIR LES Produits  -->
                 <div class="liste-produts product">
-                <?php foreach ($produits as $key => $produit) : ?>
-                    <!-- Afficher le produit-->
-                    <div class="box py-2 py-4">
-                        <!-- <span>40%</span> -->
-                        <div class="card-img">
-                        <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
-                        </div>
+                    <?php foreach ($produits as $key => $produit) : ?>
+                        <!-- Afficher le produit-->
+                        <div class="box py-2 py-4">
+                            <!-- <span>40%</span> -->
+                            <div class="card-img">
+                                <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
+                            </div>
 
-                        <div class="card-body mb-2">
-                            <h6><?= $produit['nom'] ?></h6>
-                            <h5><?= $produit['prixU'] ?></h5>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <del class="text-danger"><?= $produit['prixU'] ?></del>
-                                <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                            <div class="card-body mb-2">
+                                <h6><?= $produit['nom'] ?></h6>
+                                <h5><?= $produit['prixU'] ?></h5>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                    <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     <?php endforeach; ?>
                 </div>
             </div>
@@ -170,21 +176,21 @@ $produits = $transaction->getAllProduct();
             <div class="liste-produts product">
                 <!-- Afficher les produitq -->
                 <?php foreach ($produits as $key => $produit) : ?>
-                <div class="box box-2 py-2 px-2 rounded-2 mt-1">
-                    <span class="percent"> -40%</span>
-                    <div class="card-img">
-                        <!-- l'image du produit -->
-                        <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                    <div class="box box-2 py-2 px-2 rounded-2 mt-1">
+                        <span class="percent"> -40%</span>
+                        <div class="card-img">
+                            <!-- l'image du produit -->
+                            <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                        </div>
+                        <div class="card-body mb-2">
+                            <!-- nom du produit -->
+                            <p><?= $produit['nom'] ?></p>
+                            <!-- Prix du produit -->
+                            <h5><?= $produit['prixU'] ?></h5>
+                            <!-- reduction prix -->
+                            <del class="text-danger"><?= $produit['prixU'] ?></del>
+                        </div>
                     </div>
-                    <div class="card-body mb-2">
-                        <!-- nom du produit -->
-                        <p><?= $produit['nom'] ?></p>
-                        <!-- Prix du produit -->
-                        <h5><?= $produit['prixU'] ?></h5>
-                        <!-- reduction prix -->
-                        <del class="text-danger"><?= $produit['prixU'] ?></del>
-                    </div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </div>
@@ -208,32 +214,32 @@ $produits = $transaction->getAllProduct();
             <div class="row">
                 <!-- Parcourir liste Produits chaussures  -->
                 <?php foreach ($produits as $key => $produit) : ?>
-                <div class="col-md-4">
-                    <div class="d-flex justify-content-center align-items-center border-1">
-                        <div class="cart p-2">
-                            <!-- AFFicher Image -->
-                            <img src="assets/image/<?= $produit['image'] ?>"" width="150px" alt="" />
-                            <!-- Nom dU PRODUIT -->
-                            <h4 class="title"><?= $produit['nom'] ?></h4>
-                            <!-- Etoiles -->
-                            <div class="rating text-warning">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                            <div class="text-center my-3">
-                                <div class="mx-3">
-                                    <!-- reduction -->
-                                    <span><del><?= $produit['prixU'] ?></del></span> <br />
-                                    <!-- Prixs -->
-                                    <span class="text-warning"><?= $produit['prixU'] ?></span>
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-center align-items-center border-1">
+                            <div class="cart p-2">
+                                <!-- AFFicher Image -->
+                                <img src="assets/image/<?= $produit['image'] ?>"" width=" 150px" alt="" />
+                                <!-- Nom dU PRODUIT -->
+                                <h4 class="title"><?= $produit['nom'] ?></h4>
+                                <!-- Etoiles -->
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                </div>
+                                <div class="text-center my-3">
+                                    <div class="mx-3">
+                                        <!-- reduction -->
+                                        <span><del><?= $produit['prixU'] ?></del></span> <br />
+                                        <!-- Prixs -->
+                                        <span class="text-warning"><?= $produit['prixU'] ?></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
             </div>
         </section>

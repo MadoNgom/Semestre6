@@ -19,21 +19,10 @@ li {
     "sidebar main";
 }
 
-.sidebar {
+aside {
   grid-area: sidebar;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   min-height: 100vh;
-}
-.header {
-  background-color: #ffff;
-  grid-area: header;
-}
-
-.content {
-  grid-area: main;
-  background-color: #f9f8f9;
-}
-aside {
   position: fixed;
   top: 0;
   bottom: 0;
@@ -43,6 +32,15 @@ aside {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+.header {
+  background-color: #ffff;
+  grid-area: header;
+}
+
+.content {
+  grid-area: main;
+  background-color: #f9f8f9;
 }
 
 .nav-ul {
