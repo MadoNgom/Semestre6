@@ -67,9 +67,18 @@ $produits = $transaction->getAllProduct();
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
-                            <a href="" class="nav-link text-dark">
+                            <a href="panier/panier.php" class="nav-link text-dark">
                                 <div class="cart">
                                     Panier
+                                    <i class="bi bi-cart-fill"></i>
+                                    <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="panier/commande.php" class="nav-link text-dark">
+                                <div class="cart">
+                                    commande
                                     <i class="bi bi-cart-fill"></i>
                                     <span class="number bg-danger text-white rounded-circle fs-6">1</span>
                                 </div>

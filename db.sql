@@ -5,9 +5,11 @@ USE `FineShop`;
 CREATE TABLE `User` (
   `id` int PRIMARY KEY AUTO_INCREMENT,
   `nomComplet` VARCHAR(100),
+  `address` VARCHAR(100),
   `email` VARCHAR(100) UNIQUE,
   `pwd` VARCHAR(100),
-  `profile` ENUM("ADMIN", "BOUTIQUIER", "CLIENT")
+  `profile` ENUM("ADMIN", "BOUTIQUIER", "CLIENT"),
+  `dateCreation` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 CREATE TABLE `Categorie` (

@@ -79,10 +79,10 @@ class DBTransaction{
         }
     }
 
-    public function inscription($nomComplet, $email, $pwd, $profile) {
+    public function inscription($nomComplet, $address, $email, $pwd, $profile) {
         try {
-            $stmt = $this->database->prepare("INSERT INTO `User` (`nomComplet`, `email`, `pwd`, `profile`) VALUES (?, ?, ?, ?)");
-            $stmt->execute([$nomComplet, $email, $pwd, $profile]);
+            $stmt = $this->database->prepare("INSERT INTO `User` (`nomComplet`, `address`, `email`, `pwd`, `profile`) VALUES (?, ?, ?, ?, ?)");
+            $stmt->execute([$nomComplet, $address, $email, $pwd, $profile]);
             return 1; // succès
         } catch (\PDOException $th) {
             // Vous pouvez également enregistrer l'erreur pour le débogage

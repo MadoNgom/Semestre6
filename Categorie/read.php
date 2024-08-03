@@ -45,8 +45,8 @@ if (isset($_POST['click'])) {
 </head>
 
 <body>
-   <!-- Header start -->
-   <header class="bg-light text-dark shadow sticky-top py-2">
+ <!-- Header start -->
+<header class="bg-light text-dark shadow sticky-top py-2">
       <div class="container-fluid">
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
@@ -70,7 +70,7 @@ if (isset($_POST['click'])) {
                <ul class="nav justify-content-end">
                   <?php if (isBoutiquier()) : ?>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="produits/listproduit.php">
+                        <a class="nav-link text-dark" href="../produits/listproduit.php">
                            Mes Produits</a>
                      </li>
                      <li class="nav-item">
@@ -78,16 +78,16 @@ if (isset($_POST['click'])) {
                            Categories</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                        <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                      </li>
                   <?php endif; ?>
                   <?php if (isAdmin()) : ?>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                        <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                      </li>
                   <?php endif; ?>
                   <li class="nav-item">
-                     <a href="" class="nav-link text-dark">
+                     <a href="../panier/panier.php" class="nav-link text-dark">
                         <div class="cart">
                            Panier
                            <i class="bi bi-cart-fill"></i>
@@ -96,7 +96,16 @@ if (isset($_POST['click'])) {
                      </a>
                   </li>
                   <li class="nav-item">
-                     <a class="btn btn-dark text-white" href="./page/connexion.php">
+                     <a href="../panier/commande.php" class="nav-link text-dark">
+                        <div class="cart">
+                           Commande
+                           <i class="bi bi-cart-fill"></i>
+                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                        </div>
+                     </a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="btn btn-dark text-white" href="../page/connexion.php">
                         <i class="bi bi-person-fill"></i> connexion
                      </a>
                   </li>

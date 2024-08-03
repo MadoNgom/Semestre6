@@ -15,10 +15,11 @@ $transaction = new DBTransaction();
 $msg = "";
 if (isset($_POST) && isset($_POST['click'])) {
    $nomComplet = $_POST['nomComplet'];
+   $address = $_POST['address'];
    $email = $_POST['email'];
    $pwd = $_POST['pwd'];
    $profile = $_POST['profile'];
-   $result = $transaction->inscription($nomComplet, $email, $pwd, $profile);
+   $result = $transaction->inscription($nomComplet, $address, $email, $pwd, $profile);
 
    if ($result == 0) {
       $msg = "Donnees invalide";
@@ -47,11 +48,15 @@ if (isset($_POST) && isset($_POST['click'])) {
       <?= $msg ?>
       <div class="col-md-6">
          <label for="nomComplet" class="form-label">NomComplet</label>
-         <input name="nomComplet" type="texte" class="form-control" id="Nom" required>
+         <input name="nomComplet" type="texte" class="form-control" id="NomComplet" required>
+      </div>
+      <div class="col-md-6">
+         <label for="address" class="form-label">Address</label>
+         <input name="address" type="texte" class="form-control" id="address" required>
       </div>
       <div class="col-md-6">
          <label for="Email" class="form-label">Email</label>
-         <input name="email" type="email" class="form-control" id="Téléphone" required>
+         <input name="email" type="email" class="form-control" id="email" required>
       </div>
       <div class="col-md-6">
          <label for="password" class="form-label">Password</label>
