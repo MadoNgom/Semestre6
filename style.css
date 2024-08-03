@@ -3,6 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: lightgrey;
+}
 footer {
   width: 100%;
   margin-bottom: 0;

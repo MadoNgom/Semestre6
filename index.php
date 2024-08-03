@@ -19,8 +19,8 @@ $produits = $transaction->getAllProduct();
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <!-- BOOSTRAP CDN LINK -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="assets/styles/list.css"> -->
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="./style.css">
 
 </head>
 
@@ -31,8 +31,9 @@ $produits = $transaction->getAllProduct();
             <div class="d-flex justify-content-between align-items-center">
                 <!-- FIRST ROW -->
                 <div class="d-none d-sm-none d-md-block">
-                    <div class="nav-brand d-flex justify-content-center lign-items-center">
+                    <div class="nav-brand d-flex justify-content-center lign-items-center" routerLink="/">
                         <h4 class="nav-brand mx-2">Finshop</h4>
+                        <img src="./assets/image/bg/shopping-bag.png" class="w-25" alt="" />
                     </div>
                 </div>
                 <!-- SEARCH BAR -->
@@ -148,62 +149,75 @@ $produits = $transaction->getAllProduct();
         <div class="container">
             <h3 class="text-center py-2">Votre satisfaction est tout ce qui compte</h3>
 
-            <div class="container">
-                <!-- pARCOURIR LES Produits  -->
-                <div class="liste-produts product">
-                    <?php foreach ($produits as $key => $produit) : ?>
-                        <!-- Afficher le produit-->
-                        <div class="box py-2 py-4">
-                            <!-- <span>40%</span> -->
-                            <div class="card-img">
-                                <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
-                            </div>
+            <div class="d-flex">
+                <div class="aside">
+                    <div>
+                        <h6>Categories</h6>
+                    </div>
+                    <ul>
+                        <li><a href="">Beauté et bien etre</a></li>
+                        <li><a href="">Accessoire Femmes</a></li>
+                        <li><a href="">chaussures hommes</a></li>
+                    </ul>
+                </div>
+                <div class="container">
+                    <!-- pARCOURIR LES Produits  -->
+                    <div class="liste-produts product">
+                        <?php foreach ($produits as $key => $produit) : ?>
+                            <!-- Afficher le produit-->
+                            <div class="box py-2 py-4">
+                                <!-- <span>40%</span> -->
+                                <div class="card-img">
+                                    <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
+                                </div>
 
-                            <div class="card-body mb-2">
-                                <h6><?= $produit['nom'] ?></h6>
-                                <h5><?= $produit['prixU'] ?></h5>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
-                                    <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                <div class="card-body mb-2">
+                                    <h6><?= $produit['nom'] ?></h6>
+                                    <h5><?= $produit['prixU'] ?></h5>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                        <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    <?php endforeach; ?>
+                        <?php endforeach; ?>
+                    </div>
+                    <!-- Categories Beauté -->
+
+                    <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
+                        <h5>Meilleures offres Beauté</h5>
+                        <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
+                    </div>
+
+                    <!-- Parcourir Produits beauté -->
+                    <div class="liste-produts product">
+                        <!-- Afficher les produitq -->
+                        <?php foreach ($produits as $key => $produit) : ?>
+                            <div class="box box-2 py-2 px-2 rounded-2 mt-1">
+                                <span class="percent"> -40%</span>
+                                <div class="card-img">
+                                    <!-- l'image du produit -->
+                                    <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                                </div>
+                                <div class="card-body mb-2">
+                                    <!-- nom du produit -->
+                                    <p><?= $produit['nom'] ?></p>
+                                    <!-- Prix du produit -->
+                                    <h5><?= $produit['prixU'] ?></h5>
+                                    <!-- reduction prix -->
+                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- Categories Beauté -->
-    <section>
-        <div class="container">
-            <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
-                <h5>Meilleures offres Beauté</h5>
-                <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
-            </div>
 
-            <!-- Parcourir Produits beauté -->
-            <div class="liste-produts product">
-                <!-- Afficher les produitq -->
-                <?php foreach ($produits as $key => $produit) : ?>
-                    <div class="box box-2 py-2 px-2 rounded-2 mt-1">
-                        <span class="percent"> -40%</span>
-                        <div class="card-img">
-                            <!-- l'image du produit -->
-                            <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
-                        </div>
-                        <div class="card-body mb-2">
-                            <!-- nom du produit -->
-                            <p><?= $produit['nom'] ?></p>
-                            <!-- Prix du produit -->
-                            <h5><?= $produit['prixU'] ?></h5>
-                            <!-- reduction prix -->
-                            <del class="text-danger"><?= $produit['prixU'] ?></del>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
         </div>
     </section>
+
+
     <!-- Categoris chaussures -->
     <section>
         <div class="container-fluid">
