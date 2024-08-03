@@ -16,55 +16,57 @@
 <body>
    <!-- admin.component.html -->
    <div class="admin-container">
-      <aside class="aside bg-dark text-light">
-         <div class="d-flex align-items-center px-4">
-            <h4 class="mx-2">Finshop</h4>
-            <img src="../../../../assets/images/shopping-bag.png" width="40px" />
+      <aside class="sidebar bg-dark text-light">
+         <div class="aside">
+            <div class="d-flex align-items-center px-4">
+               <h4 class="mx-2">Finshop</h4>
+               <img src="../../../../assets/images/shopping-bag.png" width="40px" />
+            </div>
+            <hr />
+            <ul class="nav-ul">
+               <li class="nav-item active">
+                  <span><i class="bi bi-columns-gap"></i></span>
+                  <a href="../Categorie/read.php" class="nav-link"> Dashboard</a>
+               </li>
+               <li class="nav-item">
+                  <span> <i class="bi bi-boxes"></i></span>
+                  <div class="dropdown">
+                     <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Produits
+                     </a>
+
+                     <ul class="dropdown-menu">
+                        <li>
+                           <a class="dropdown-item" href="./ajout-produit.php">Ajouter Produits</a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="">Tout les catégories</a>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <span><i class="bi bi-bag-check-fill"></i></span>
+                  <a href="" class="nav-link">Categories</a>
+               </li>
+               <li class="nav-item active">
+                  <span><i class="bi bi-bag-check-fill"></i></span>
+                  <a href="" class="nav-link">
+                     Commande Clients</a>
+               </li>
+               <li class="nav-item">
+                  <span><i class="bi bi-person-fill-gear"></i></span>
+                  <a href="" class="nav-link">Mes Ventes</a>
+               </li>
+
+               <li class="nav-item logout">
+                  <a href="" class="nav-link"><i class="bi bi-box-arrow-right text-white fs-5"></i> Déconnection</a>
+               </li>
+            </ul>
          </div>
-         <hr />
-         <ul class="nav-ul">
-            <li class="nav-item active">
-               <span><i class="bi bi-columns-gap"></i></span>
-               <a href="" class="nav-link"> Dashboard</a>
-            </li>
 
-            <li class="nav-item">
-               <span> <i class="bi bi-boxes"></i></span>
-               <div class="dropdown">
-                  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     Produits
-                  </a>
-
-                  <ul class="dropdown-menu">
-                     <li>
-                        <a class="dropdown-item" href="./ajout-produit.php">Ajouter Produits</a>
-                     </li>
-                     <li>
-                        <a class="dropdown-item" href="">Tout les catégories</a>
-                     </li>
-                  </ul>
-               </div>
-            </li>
-            <li class="nav-item">
-               <span><i class="bi bi-bag-check-fill"></i></span>
-               <a href="" class="nav-link">Categories</a>
-            </li>
-            <li class="nav-item active">
-               <span><i class="bi bi-bag-check-fill"></i></span>
-               <a href="" class="nav-link">
-                  Commande Clients</a>
-            </li>
-            <li class="nav-item">
-               <span><i class="bi bi-person-fill-gear"></i></span>
-               <a href="" class="nav-link">Mes Ventes</a>
-            </li>
-
-            <li class="nav-item logout">
-               <a href="" class="nav-link"><i class="bi bi-box-arrow-right text-white fs-5"></i> Déconnection</a>
-            </li>
-         </ul>
       </aside>
-      <header class="header"></header>
+      <header class="header"> header</header>
       <div class="content">
          <div class="container-fluid">
             <div class="grid mt-4">

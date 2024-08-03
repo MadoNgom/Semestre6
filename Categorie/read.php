@@ -14,7 +14,22 @@ require('../DBTransaction.php');
 $transaction = new DBTransaction();
 $id_boutiquier = $_SESSION['User']['id'];
 $categories = $transaction->getCategorieByIdBoutiquier($id_boutiquier);
+// Pour ajout categories
+$msg = "";
+if (isset($_POST['click'])) {
+   $nom = $_POST['nom'];
+   $description = $_POST['description'];
+   $id_boutiquier = $_SESSION['User']['id'];
+   $result = $transaction->createCategorie($nom, $description, $id_boutiquier);
+   if ($result == 1) {
+      header("Location:read.php");
+      exit();
+   } else {
+      $msg = $result;
+   }
+}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -94,25 +109,53 @@ $categories = $transaction->getCategorieByIdBoutiquier($id_boutiquier);
       </div>
    </header>
    <!-- HEADER END -->
+   <!-- Button trigger modal -->
    <div class="container p-4">
-      <a href="create.php" class="btn btn-success mb-3 ">Add New</a>
-      <div class="row">
-         <div class="col-md-4">
-            <h5>Categories</h5>
-            <h6>Nom</h6>
-            <div class="input-group">
-               <br />
-               <br />
-               <input type="text" name="text" class="form-control" placeholder="Nom de la Categorie" />
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+         Add New
+      </button>
+      <!-- Modal -->
+      <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter Categories</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+
+                  <form action="create.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
+                     <div class="col-md-6">
+                        <label for="Nom" class="form-label">Nom</label>
+                        <input name="nom" type="text" class="form-control" id="Nom" required>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                     </div>
+                     <div class="modal-footer">
+                        <button name="click" type="submit" class="btn btn-primary">Ajouter</button>
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Annuler</button>
+                     </div>
+                     <?php if ($msg) : ?>
+                        <div class="alert alert-danger" role="alert">
+                           <?php echo $msg; ?>
+                        </div>
+                     <?php endif; ?>
+
+                  </form>
+               </div>
+
             </div>
-            <h6>Description</h6>
-            <div class="input-group">
-               <br />
-               <textarea name="" id="" cols="30" rows="5" class="form-control"></textarea>
-            </div>
-            <button class="btn btn-primary mt-2 d-block">Ajouter categories</button>
          </div>
-         <div class="col-md-7">
+      </div>
+   </div>
+
+   <div class="container p-4">
+
+      <!-- Listes Categories -->
+      <div class="row">
+         <div class="col-md-8">
             <h5 class="mb-2">listes Categories</h5>
             <table class="table table-centered mb-0">
                <thead class="table-dark table-striped">
@@ -141,7 +184,6 @@ $categories = $transaction->getCategorieByIdBoutiquier($id_boutiquier);
 
                      </tr>
                   <?php } ?>
-
                </tbody>
             </table>
          </div>
