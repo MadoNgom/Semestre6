@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
         $result = $transaction->connexion($email, $pwd);
         if ($result != null) {
             $_SESSION['User'] = $result;
+            $_SESSION['nomComplet'] = $result['nomComplet']; // Assurez-vous que $result contient 'nomComplet'
             header("Location: ../index.php");
             exit();
         } else {
@@ -25,6 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['click'])) {
     }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 

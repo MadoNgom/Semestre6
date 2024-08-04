@@ -118,7 +118,7 @@ public function connexion($email,$pwd){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-public function getALLproductByFemme($category = 'Femme') {
+public function getALLproductByFemme($category = 'Accessoire Femmes') {
     $stmt = $this->database->prepare(
         "SELECT Produit.* FROM Produit 
          JOIN Categorie ON Produit.id_categorie = Categorie.id 
@@ -324,25 +324,16 @@ public function updateprofil($id,$nomComplet,$email,$pwd){
     }
 }
 
-public function updatePanier($idPanier, $montantTotal) {
+public function updatePanier($id_panier,$montantTOT){
     try {
-        $stmt = $this->database->prepare("UPDATE `Panier` SET montantTOT = :montantTotal WHERE id = :idPanier");
-        $stmt->bindParam(':montantTotal', $montantTotal, PDO::PARAM_STR);
-        $stmt->bindParam(':idPanier', $idPanier, PDO::PARAM_INT);
-        $stmt->execute();
-
-        // Vérifiez si la mise à jour a réussi
-        if ($stmt->rowCount() > 0) {
-            return 1;
-        } else {
-            error_log("Aucune ligne mise à jour pour le panier ID: $idPanier");
-            return 0;
-        }
-    } catch (PDOException $e) {
-        error_log("Erreur dans updatePanier: " . $e->getMessage());
+        $result = $this->database->query("UPDATE `Panier` SET montantTOT='$montantTOT' WHERE id='$id_panier'");
+        $result->fetch();
+       return 1;
+    } catch (\PDOException$th) {
         return 0;
     }
-}
+ }
+
 
 
 public function updateNbrPanier($idProduit, $nbr, $montantTOT) {
