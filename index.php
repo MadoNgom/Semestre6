@@ -158,9 +158,9 @@ $produits = $transaction->getAllProduct();
                 <div class="aside">
                     <ul>
                         <h6>Categories</h6>
-                        <li class="aside-item"><a href="" class="aside-link">Beauté et bien etre</a></li>
-                        <li class="aside-item"><a href="" class="aside-link">Accessoire Femmes</a></li>
-                        <li class="aside-item"><a href="" class="aside-link">chaussures hommes</a></li>
+                        <li class="aside-item"><a href="page/Bien etre et beauté.php" class="aside-link">Beauté et bien etre</a></li>
+                        <li class="aside-item"><a href="page/Accessoire Femme.php" class="aside-link">Accessoire Femmes</a></li>
+                        <li class="aside-item"><a href="page/Chaussures Hommes.php" class="aside-link">chaussures hommes</a></li>
                     </ul>
                 </div>
                 <div class="container">

@@ -6,7 +6,7 @@ require('../page/roles.php');
 require('../DBTransaction.php');
 
 $transaction = new DBTransaction();
-$produitsHomme = $transaction->getALLproductByFemme();
+$produitsHomme = $transaction->getALLproductByHomme();
 
 ?>
 <!DOCTYPE html>
@@ -22,6 +22,7 @@ $produitsHomme = $transaction->getALLproductByFemme();
     <link rel="stylesheet" href="../assets/styles/nave.css">
 </head>
 <body>
+
  <!-- Header start -->
  <header class="bg-light text-dark shadow sticky-top py-2">
         <div class="container-fluid">
