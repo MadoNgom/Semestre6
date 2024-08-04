@@ -3,12 +3,12 @@
   margin: 0;
   box-sizing: border-box;
 }
-ul {
-  list-style-type: none;
+.aside-item {
+  border: 1px solid yellow;
 }
-a {
-  text-decoration: none;
-  color: lightgrey;
+.aside-link {
+  font-style: 1rem;
+  word-wrap: nowrap;
 }
 footer {
   width: 100%;

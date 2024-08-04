@@ -76,15 +76,25 @@ $produits = $transaction->getAllProduct();
                                 </div>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a href="panier/commande.php" class="nav-link text-dark">
                                 <div class="cart">
-                                    commande
-                                    <i class="bi bi-cart-fill"></i>
-                                    <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                                    Mes commandes
+                                    <i class="bi bi-bag-check-fill"></i>
                                 </div>
                             </a>
                         </li>
+                        <li class="dropdown nav-item">
+                            <a class=" dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Bienvenu ! Malado 👋
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                                <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                            </ul>
+                        </li>
+
                         <li class="nav-item">
                             <a class="btn btn-dark text-white" href="./page/connexion.php">
                                 <i class="bi bi-person-fill"></i> connexion
@@ -148,16 +158,13 @@ $produits = $transaction->getAllProduct();
     <section>
         <div class="container">
             <h3 class="text-center py-2">Votre satisfaction est tout ce qui compte</h3>
-
             <div class="d-flex">
                 <div class="aside">
-                    <div>
-                        <h6>Categories</h6>
-                    </div>
                     <ul>
-                        <li><a href="">Beauté et bien etre</a></li>
-                        <li><a href="">Accessoire Femmes</a></li>
-                        <li><a href="">chaussures hommes</a></li>
+                        <h6>Categories</h6>
+                        <li class="aside-item"><a href="" class="aside-link">Beauté et bien etre</a></li>
+                        <li class="aside-item"><a href="" class="aside-link">Accessoire Femmes</a></li>
+                        <li class="aside-item"><a href="" class="aside-link">chaussures hommes</a></li>
                     </ul>
                 </div>
                 <div class="container">
@@ -213,11 +220,8 @@ $produits = $transaction->getAllProduct();
 
                 </div>
             </div>
-
         </div>
     </section>
-
-
     <!-- Categoris chaussures -->
     <section>
         <div class="container-fluid">
@@ -343,8 +347,6 @@ $produits = $transaction->getAllProduct();
         </footer>
 
     </div>
-    <!-- End of .container -->
-    <!-- Footer -->
     <!-- jS LINK -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
