@@ -76,3 +76,22 @@ footer {
 .percent {
   color: rgb(105, 220, 105);
 }
+table {
+  border-radius: 0.8rem;
+  width: 100%;
+}
+.thead {
+  padding: 1rem 0;
+}
+.table,
+th,
+td {
+  padding: 1rem;
+}
+td img {
+  width: 36px;
+  height: 36px;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  vertical-align: middle;
+}

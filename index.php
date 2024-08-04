@@ -8,7 +8,6 @@ $transaction = new DBTransaction();
 $produits = $transaction->getAllProduct();
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -218,17 +217,16 @@ $produits = $transaction->getAllProduct();
             </div>
         </div>
     </section>
-    <!-- Categoris chaussures -->
+    <!-- Categories chaussures -->
     <section>
-        <div class="container-fluid">
+        <div class="container">
             <h4 class="text-center">Nos collections de chaussures Nike</h4>
             <div class="grid">
+                <img src="./assets/image/img5.png" alt="" />
                 <img src="./assets/image/img1.png" alt="" />
                 <img src="./assets/image/img1.png" alt="" />
                 <img src="./assets/image/img3.png" alt="" />
                 <img src="./assets/image/img4.png" alt="" />
-                <img src="./assets/image/img5.png" alt="" />
-                <img src="./assets/image/img6.png" alt="" />
             </div>
         </div>
         <!-- Nouvelles arrivages de chaussures  -->
@@ -267,82 +265,71 @@ $produits = $transaction->getAllProduct();
             </div>
         </section>
     </section>
-    <div class=" bg-black my-5">
-        <footer class="container-fluid text-white text-center text-lg-start bg-dark">
-            <!-- Grid container -->
-            <div class="container p-4">
-                <!--Grid row-->
-                <div class="row mt-4">
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4">A propos <img src="assets/image/logo.png" alt=""></a></h5>
-
-                        <p class="fs-6 text-black-50">
-                            Bienvenue sur FineShop, votre destination ultime pour trouver les dernières tendances en matière de chaussures de qualité.<br>
-
-
-                        </p>
-
-                        <div class="mt-4">
-                            <!-- Facebook -->
-                            <img src="assets/image/face.png" width="30px" alt="">
-                            <!-- Dribbble -->
-                            <img src="assets/image/google.png" width="30px" alt="">
-                            <img src="assets/image/insta.png" width="30px" alt="">
-                            <img src="assets/image/linkdin.png" width="30px" alt="">
-
-                        </div>
+    <!-- Nos partenaires -->
+    <section>
+        <div class="container">
+            <h5>
+                Nos partenaires
+            </h5>
+        </div>
+    </section>
+    <footer class="container-fluid text-white text-center text-lg-start bg-dark">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <!--Grid row-->
+            <div class="row mt-4">
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 fs-6">A propos <img src="assets/image/shopping-bag.png" width="30" alt=""></a></h5>
+                    <p class="fs-6 text-light">
+                        Bienvenue sur FineShop, votre destination ultime pour trouver les dernières tendances en matière de chaussures de qualité.<br>
+                    </p>
+                    <div class="mt-4">
+                        <!-- Facebook -->
+                        <img src="assets/image/face.png" width="30px" alt="">
+                        <img src="assets/image/google.png" width="30px" alt="">
+                        <img src="assets/image/linkdin.png" width="30px" alt="">
                     </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4 pb-1">Rechercher nous</h5>
-
-                        <div class="form-outline form-white mb-4 d-flex">
-                            <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="recherche" />
-                            <button type="submit" class="btn btn-danger">Search</button>
-                        </div>
-
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                        <h5 class="text-uppercase mb-4">Heure d'ouverture</h5>
-
-                        <table class="table text-center text-white rounded-3 shadow">
-                            <tbody class="fw-normal">
-                                <tr>
-                                    <td>Lundi - Jeudi:</td>
-                                    <td>8am - 9pm</td>
-                                </tr>
-                                <tr>
-                                    <td>Ven - Dima:</td>
-                                    <td>8am - 1am</td>
-                                </tr>
-                                <tr>
-                                    <td>Sunday:</td>
-                                    <td>9am - 10pm</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <!--Grid column-->
                 </div>
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0 ">
+                    <h5 class="text-uppercase mb-4 pb-1 fs-6">Rechercher nous</h5>
 
+                    <div class="form-outline form-white mb-4 d-flex">
+                        <input type="text" id="formControlLg" class="form-control form-control-lg" placeholder="recherche" />
+                        <button type="submit" class="btn btn-warning d-block mx-2">Search</button>
+                    </div>
+                </div>
+                <!--Grid column-->
+                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-uppercase mb-4 fs-6">Heure d'ouverture</h5>
+                    <table class="table text-center text-white rounded-5 shadow-5">
+                        <tbody class="fw-normal">
+                            <tr>
+                                <td>Lundi - Jeudi:</td>
+                                <td>8am - 9pm</td>
+                            </tr>
+                            <tr>
+                                <td>Ven - Dima:</td>
+                                <td>8am - 1am</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday:</td>
+                                <td>9am - 10pm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Grid column-->
             </div>
-
-
-            <!-- Copyright -->
-            <div class="text-center mb-0" style="background-color: rgba(0, 0, 0, 0.2);">
-                © 2024 Copyright:
-                <a class="text-white" href="https://finshop.com/">Finshop.com
-            </div>
-            <!-- Copyright -->
-        </footer>
-
-    </div>
+        </div>
+        <!-- Copyright -->
+        <div class="text-center mb-0 fs-6 py-3" style="background-color: rgba(0, 0, 0, 0.2); color:grey;">
+            © 2024 Copyright:
+            <a class="text-white fs-6" href="https://finshop.com/">Finshop.com
+        </div>
+        <!-- Copyright -->
+    </footer>
     <!-- jS LINK -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
