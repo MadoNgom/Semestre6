@@ -26,8 +26,7 @@ $msg = "";
    <title>Listes des produits</title>
    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <!-- <link rel="stylesheet" href="../assets/styles/list.css">
-   <link rel="stylesheet" href="../assets/styles/nave.css"> -->
+   <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -38,7 +37,7 @@ $msg = "";
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
                <div class="nav-brand d-flex justify-content-center lign-items-center" routerLink="/">
-                  <h4 class="nav-brand mx-2">Finshop</h4>
+                  <h4 class="nav-brand mx-2">Fineshop</h4>
                   <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
                </div>
             </div>
@@ -67,37 +66,30 @@ $msg = "";
                      <li class="nav-item">
                         <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                      </li>
+                     <li class="nav-item">
+                        <a href="" class="nav-link text-dark">
+                           Bonjour ! Admin 👋
+                        </a>
+                     </li>
+                     <li class="dropdown nav-item">
+                        <a class=" dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                           <i class="bi bi-bell-fill "></i>
+                           <span class="number fs-6  bg-danger text-white rounded-circle p-1 fs-6">1</span>
+                        </a>
+                        <ul class="dropdown-menu">
+                           <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                           <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                        </ul>
+                     </li>
                   <?php endif; ?>
                   <?php if (isAdmin()) : ?>
                      <li class="nav-item">
                         <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
                      </li>
                   <?php endif; ?>
-                  <li class="nav-item">
-                     <a href="../panier/panier.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Panier
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a href="../panier/commande.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Commande
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
-                     </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="btn btn-dark text-white" href="../page/connexion.php">
-                        <i class="bi bi-person-fill"></i> connexion
-                     </a>
-                  </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
-                     Finshop
+                     Fineshop
                   </a>
                </ul>
             </div>
@@ -163,40 +155,54 @@ $msg = "";
                </div>
             </div>
          </div>
-         <div class="row">
-            <?php foreach ($produits as $key => $produit) : ?>
-               <div class="col-md-4 p-4">
-                  <div class="d-flex justify-content-center align-items-center">
-                     <div>
-                        <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
-                        <h4 class="title">
-                           <?= $produit['nom'] ?>
-                        </h4>
-                        <div class="rating text-warning">
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-fill"></i>
-                           <i class="bi bi-star-half"></i>
-                        </div>
-                        <div class="d-flex my-3">
-                           <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
-                           <div class="mx-3">
-                              <span class="text-warning"><?= $produit['prixU'] ?></span> <br>
+         <div class="container-fluid">
+            <div class="row">
+               <!-- Rigth content -->
+               <div class="col-md-4">
+                  <ul class="nav-ul my-4 py-4 px-3">
+                     <h4>Categories</h4>
+                     <li class="nav-item"><a href="" class="nav-link">Beauté et bien etre </a></li>
+                     <li class="nav-item"><a href="" class="nav-link"> Accessoire Femme </a></li>
+                     <li class="nav-item"> <a href="" class="nav-link">chaussures Hommes</a></li>
+                  </ul>
+               </div>
+               <div class="col-md-8">
+                  <!-- left content -->
+                  <div class="row">
+                     <?php foreach ($produits as $key => $produit) : ?>
+                        <div class="col-md-4 p-4">
+                           <div class="d-flex justify-content-center align-items-center">
+                              <div>
+                                 <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
+                                 <h4 class="title">
+                                    <?= $produit['nom'] ?>
+                                 </h4>
+                                 <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
+                                 </div>
+                                 <div class="d-flex my-3">
+                                    <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
+                                    <div class="mx-3">
+                                       <span class="text-warning"><?= $produit['prixU'] ?></span> <br>
+                                    </div>
+
+                                 </div>
+                                 <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                 <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
+                              </div>
                            </div>
-                          
                         </div>
-                        <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-<<<<<<< HEAD
-                        <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?=$produit['id']?>"><i class="bi bi-trash"></i></a>
-=======
-                        <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
->>>>>>> 06eb1637529c8ab6487b4f49a28ca7cb7e969390
-                     </div>
+                     <?php endforeach; ?>
                   </div>
                </div>
-            <?php endforeach; ?>
+
+            </div>
          </div>
+
       </div>
    </section>
 

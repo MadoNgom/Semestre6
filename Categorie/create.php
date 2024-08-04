@@ -108,7 +108,7 @@ if (isset($_POST['click'])) {
    </header>
    <!-- HEADER END -->
 
-   <form action="create.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
+   <!-- <form action="create.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
       <div class="col-md-6">
          <label for="Nom" class="form-label">Nom</label>
          <input name="nom" type="text" class="form-control" id="Nom" required>
@@ -126,7 +126,7 @@ if (isset($_POST['click'])) {
             <?php echo $msg; ?>
          </div>
       <?php endif; ?>
-   </form>
+   </form> -->
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

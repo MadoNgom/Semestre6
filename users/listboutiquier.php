@@ -86,7 +86,6 @@ $users = $transaction->getAlluser();
                         <li><a class="dropdown-item" href="#">se deconnecté</a></li>
                      </ul>
                   </li>
-
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
                      Finshop
                   </a>
@@ -184,63 +183,12 @@ $users = $transaction->getAlluser();
             </td>
             </tr>
          <?php } ?>
-         <!-- <tr>
-                        <td>
-                           
-                        </td>
-                        <td>{{ data.product?.name }}</td>
-                        <td>
-                           <p>{{ data.user?.firstname + " " + data.user?.lastname }}</p>
-                        </td>
-                        <td>quantity </td>
-                        <td> data.product.price Fcfa</td>
-                        <div class="d-flex">
-                           <td class="text-success">
-                              modifier
-                           </td>
-                           <td class="text-danger">supprimer</td>
-                        </div>
-                     </tr> -->
          </tbody>
          </table>
-
          </div>
          </div>
       </section>
    </main>
-   <!-- TABLE ADMINISTRATEUR -->
-   <!-- <div class="container my-3">
-      <h5>Gestions Utilisateurs</h5>
-      <div class=" my-4">
-         <a href="ajoutboutiquier.php" class="btn btn-success">Add User</a>
-      </div>
-
-      <table class="table table-striped table-centered mb-0">
-         <thead class="bg-dark text-white">
-            <tr>
-               <th>Nom Complet</th>
-               <th>Email</th>
-               <th>Address</th>
-               <th>Profile</th>
-               <th>Date de creation du compte</th>
-               <th>Action</th>
-            </tr>
-         </thead>
-         <tbody>
-            
-               <tr>
-                  <td><?= $user['nomComplet'] ?></td>
-                  <td><?= $user['email'] ?></td>
-                  <td><?= $user['address'] ?></td>
-                  <td><?= $user['profile'] ?></td>
-                  <td></td>
-
-                  <td>
-                     <a href="editUser.php?idUser=<?= $user['id'] ?>" class="text-success mx-2 fs-5 text-decoration-none"><i class="bi bi-pencil-square"></i></a>
-                     <a href="deleteuser.php?iduser=<?= $user['id'] ?>" class="text-danger text-decoration-none"><i class="bi bi-trash"></i></a>
-                  </td>
-               </tr>
-            -->
 
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

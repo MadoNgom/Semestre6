@@ -45,8 +45,8 @@ if (isset($_POST['click'])) {
 </head>
 
 <body>
- <!-- Header start -->
-<header class="bg-light text-dark shadow sticky-top py-2">
+   <!-- Header start -->
+   <header class="bg-light text-dark shadow sticky-top py-2">
       <div class="container-fluid">
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
@@ -86,28 +86,22 @@ if (isset($_POST['click'])) {
                         <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                      </li>
                   <?php endif; ?>
+
                   <li class="nav-item">
-                     <a href="../panier/panier.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Panier
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
+                     <a href="" class="nav-link text-dark">
+                        Bonjour ! Admin 👋
                      </a>
                   </li>
-                  <li class="nav-item">
-                     <a href="../panier/commande.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Commande
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
+                  <li class="dropdown nav-item">
+                     <a class=" dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <i class="bi bi-bell-fill "></i>
+                        <span class="number fs-6  bg-danger text-white rounded-circle p-1 fs-6">1</span>
                      </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="btn btn-dark text-white" href="../page/connexion.php">
-                        <i class="bi bi-person-fill"></i> connexion
-                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                        <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                     </ul>
                   </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
                      Finshop
@@ -159,9 +153,7 @@ if (isset($_POST['click'])) {
          </div>
       </div>
    </div>
-
    <div class="container p-4">
-
       <!-- Listes Categories -->
       <div class="row">
          <div class="col-md-8">
@@ -169,7 +161,6 @@ if (isset($_POST['click'])) {
             <table class="table table-centered mb-0">
                <thead class="table-dark table-striped">
                   <tr>
-                     <th>Id</th>
                      <th>Nom</th>
                      <th>Description</th>
                      <th>Action</th>
@@ -179,7 +170,7 @@ if (isset($_POST['click'])) {
                   <?php
                   foreach ($categories as $key => $categorie) { ?>
                      <tr>
-                        <td>1</td>
+
                         <td><?= $categorie['nom'] ?></td>
                         <td class="w-50">
                            <p>
