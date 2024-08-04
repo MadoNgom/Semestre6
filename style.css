@@ -3,6 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+.aside-item {
+  border: 1px solid yellow;
+}
+.aside-link {
+  font-style: 1rem;
+  word-wrap: nowrap;
+}
 footer {
   width: 100%;
   margin-bottom: 0;

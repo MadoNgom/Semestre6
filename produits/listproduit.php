@@ -14,6 +14,7 @@ require('../DBTransaction.php');
 $transaction = new DBTransaction();
 $id_boutiquier = $_SESSION['User']['id'];
 $produits = $transaction->getProductByIdBoutiquier($id_boutiquier);
+$msg = "";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,19 +26,20 @@ $produits = $transaction->getProductByIdBoutiquier($id_boutiquier);
    <title>Listes des produits</title>
    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="../assets/styles/list.css">
-   <link rel="stylesheet" href="../assets/styles/nave.css">
+   <!-- <link rel="stylesheet" href="../assets/styles/list.css">
+   <link rel="stylesheet" href="../assets/styles/nave.css"> -->
 </head>
 
 <body>
-  <!-- Header start -->
-<header class="bg-light text-dark shadow sticky-top py-2">
+   <!-- Header start -->
+   <header class="bg-light text-dark shadow sticky-top py-2">
       <div class="container-fluid">
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
-               <div class="nav-brand d-flex justify-content-center lign-items-center">
-                  <h4 class="nav-brand mx-2">Fineshop</h4>
+               <div class="nav-brand d-flex justify-content-center lign-items-center" routerLink="/">
+                  <h4 class="nav-brand mx-2">Finshop</h4>
+                  <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
                </div>
             </div>
             <!-- SEARCH BAR -->
@@ -103,14 +105,64 @@ $produits = $transaction->getProductByIdBoutiquier($id_boutiquier);
       </div>
    </header>
    <!-- HEADER END -->
-
-
-
-
-   <a href="ajoutproduit.php" class="btn btn-dark mb-3 test-class">Add New</a>
-
    <section>
-      <div class="container-fluid">
+      <div class="container p-4">
+         <!-- Button trigger modal -->
+         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            Add New
+         </button>
+         <!-- Modal POUR AJOUTER UN PRODUIT -->
+         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+               <div class="modal-content">
+                  <div class="modal-header">
+                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un produit</h1>
+                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                     <form action="ajoutproduit.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
+                        <div class="col-md-6">
+                           <label for="Nom" class="form-label">Nom</label>
+                           <input name="nom" type="text" class="form-control" id="Nom" required>
+                        </div>
+                        <div class="col-md-6">
+                           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                           <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                           <label for="prixU" class="form-label">Prix Unitaire</label>
+                           <input name="prixU" type="number" class="form-control" id="prixU" step="0.01" required>
+                        </div>
+                        <div class="mb-3">
+                           <label for="formFile" class="form-label">Image du produit</label>
+                           <input name="image" class="form-control" type="file" id="formFile" required>
+                        </div>
+                        <div class="col-md-6">
+                           <select name="id_categorie" class="form-select" aria-label="Default select example" required>
+                              <?php
+                              $connexion = new PDO('mysql:host=localhost;dbname=fineShop;', 'root', '');
+                              $query = $connexion->prepare("SELECT id, nom FROM Categorie");
+                              $query->execute();
+                              while ($ctgorie = $query->fetch(PDO::FETCH_ASSOC)) {
+                                 echo "<option value='{$ctgorie['id']}'>{$ctgorie['nom']}</option>";
+                              }
+                              ?>
+                           </select>
+                        </div>
+                        <div class="col-12">
+                           <button name="click" type="submit" class="btn btn-primary">Ajouter</button>
+                           <a href="listproduit.php" class="btn btn-danger">Annuler</a>
+                        </div>
+                        <?php if ($msg) : ?>
+                           <div class="alert alert-danger" role="alert">
+                              <?php echo $msg; ?>
+                           </div>
+                        <?php endif; ?>
+                     </form>
+                  </div>
+               </div>
+            </div>
+         </div>
          <div class="row">
             <?php foreach ($produits as $key => $produit) : ?>
                <div class="col-md-4 p-4">
@@ -135,7 +187,11 @@ $produits = $transaction->getProductByIdBoutiquier($id_boutiquier);
                           
                         </div>
                         <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+<<<<<<< HEAD
                         <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?=$produit['id']?>"><i class="bi bi-trash"></i></a>
+=======
+                        <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
+>>>>>>> 06eb1637529c8ab6487b4f49a28ca7cb7e969390
                      </div>
                   </div>
                </div>
