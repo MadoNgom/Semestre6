@@ -132,10 +132,10 @@ $produits = $transaction->getProductByIdBoutiquier($id_boutiquier);
                            <div class="mx-3">
                               <span class="text-warning"><?= $produit['prixU'] ?></span> <br>
                            </div>
-                           <a href="#"><i class="bi bi-cart4 text-black fs-5"></i></a>
+                          
                         </div>
                         <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                        <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<=$produit['id']?>"><i class="bi bi-trash"></i></a>
+                        <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?=$produit['id']?>"><i class="bi bi-trash"></i></a>
                      </div>
                   </div>
                </div>
