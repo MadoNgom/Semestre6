@@ -159,7 +159,7 @@ $users = $transaction->getAlluser();
                         <th>Email</th>
                         <th>Address</th>
                         <th>Profile</th>
-                        <th>Date de creation du compte</th>
+                        <th>Date</th>
                         <th>Action</th>
                      </tr>
                   </thead>
@@ -174,18 +174,18 @@ $users = $transaction->getAlluser();
                            <td><?= $user['profile'] ?></td>
                            <td><?= $user['dateCreation'] ?></td>
                            <td>
-                              <div class="d-flex">
+
                            <td>
                               <a href="editUser.php?idUser=<?= $user['id'] ?>" class="text-success mx-2 fs-5 text-decoration-none"><i class="bi bi-pencil-square"></i></a>
                               <a href="deleteuser.php?iduser=<?= $user['id'] ?>" class="text-danger text-decoration-none"><i class="bi bi-trash"></i></a>
                            </td>
+                           </td>
+                        </tr>
+                     <?php } ?>
+
+                  </tbody>
+               </table>
             </div>
-            </td>
-            </tr>
-         <?php } ?>
-         </tbody>
-         </table>
-         </div>
          </div>
       </section>
    </main>
