@@ -179,7 +179,7 @@ if (isset($_POST['click'])) {
                   <?php
                   foreach ($categories as $key => $categorie) { ?>
                      <tr>
-                        <td>1</td>
+                        <td><?= $categorie['id'] ?></td>
                         <td><?= $categorie['nom'] ?></td>
                         <td class="w-50">
                            <p>
