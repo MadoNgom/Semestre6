@@ -11,6 +11,7 @@ $produitsHomme = $transaction->getALLproductByHomme();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -21,10 +22,11 @@ $produitsHomme = $transaction->getALLproductByHomme();
     <link rel="stylesheet" href="../assets/styles/list.css">
     <link rel="stylesheet" href="../assets/styles/nave.css">
 </head>
+
 <body>
 
- <!-- Header start -->
- <header class="bg-light text-dark shadow sticky-top py-2">
+    <!-- Header start -->
+    <header class="bg-light text-dark shadow sticky-top py-2">
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
                 <!-- FIRST ROW -->
@@ -81,16 +83,16 @@ $produitsHomme = $transaction->getALLproductByHomme();
                             </a>
                         </li>
                         <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
-                      <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                           Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
-                        </a>
-                       <ul class="dropdown-menu">
-                         <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                         <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
-                        </ul>
-                       </li>
-                       <?php else : ?>
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        <?php else : ?>
                             <li class="nav-item">
                                 <a class="btn btn-dark text-white" href="./page/connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
@@ -104,41 +106,52 @@ $produitsHomme = $transaction->getALLproductByHomme();
         </div>
     </header>
     <!-- HEADER END -->
-
-<section>
+    <section class="hero">
+        <div class="hero-text">
+            <h4>Faites le Bon choix avec Nos chaussures de qualités <br> Fabriqués qu sénégal </h4>
+            <p class="fs-6 text-black-50">
+                En achetant sur notre site, vous soutenez l'économie locale et contribuez à la valorisation de notre artisanat. Nos chaussures sont conçues pour durer
+            </p>
+            <button class="btn btn-warning">Achetez maintenant</button>
+        </div>
+    </section>
+    <section>
         <div class="container-fluid">
+            <h4 class=" text-center pt-4">Explorez notre sélection de chaussures pour hommes et trouvez la paire qui vous correspond</h4>
+            <div class="line bg-warning"></div>
             <div class="row">
-            <?php foreach ($produitsHomme as $produit) : ?>
-                <div class="col-md-4">
-                    <div class="d-flex justify-content-center align-items-center">
-                        <div>
-                            <img src="../assets/image/<?= htmlspecialchars($produit['image']) ?>" height="150px" alt="">
-                            <h4 class="title">
-                            <?= htmlspecialchars($produit['nom']) ?>
-                            </h4>
-                            <div class="rating text-warning">
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-fill"></i>
-                                <i class="bi bi-star-half"></i>
-                            </div>
-                            <div class="d-flex my-3">
-                                <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
-                                <div class="mx-3">
-                                    <span class="text-warning"><?= htmlspecialchars($produit['prixU']) ?></span> <br>
+                <?php foreach ($produitsHomme as $produit) : ?>
+                    <div class="col-md-4">
+                        <div class="d-flex justify-content-center align-items-center">
+                            <div>
+                                <img src="../assets/image/<?= htmlspecialchars($produit['image']) ?>" height="150px" alt="">
+                                <h4 class="title">
+                                    <?= htmlspecialchars($produit['nom']) ?>
+                                </h4>
+                                <div class="rating text-warning">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-half"></i>
                                 </div>
-                                <a href="#"><i class="bi bi-cart4 text-black fs-5"></i></a>
+                                <div class="d-flex my-3">
+                                    <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
+                                    <div class="mx-3">
+                                        <span class="text-warning"><?= htmlspecialchars($produit['prixU']) ?></span> <br>
+                                    </div>
+                                    <a href="#"><i class="bi bi-cart4 text-black fs-5"></i></a>
+                                </div>
+                                <a class="btn btn-danger" href="../panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>">Ajouter au Panier</a>
                             </div>
-                            <a class="btn btn-danger" href="../panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>">Ajouter au Panier</a>
                         </div>
                     </div>
-                </div>
                 <?php endforeach; ?>
-                </div>
+            </div>
         </div>
-</section>
+    </section>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
+
 </html>

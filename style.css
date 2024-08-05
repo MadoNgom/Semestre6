@@ -10,12 +10,9 @@ a {
   text-decoration: none;
   color: #dddddd3e;
 }
-.aside-item {
-  border: 1px solid yellow;
-}
-.aside-link {
-  font-style: 1rem;
-  word-wrap: nowrap;
+.aside {
+  padding: 1rem;
+  border: 1px solid #dddddd3e;
 }
 footer {
   width: 100%;

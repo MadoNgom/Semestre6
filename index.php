@@ -10,6 +10,7 @@ $produits = $transaction->getAllProduct();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,7 +20,9 @@ $produits = $transaction->getAllProduct();
     <!-- BOOSTRAP CDN LINK -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="./style.css">
+
 </head>
+
 <body>
     <!-- Header start -->
     <header class="bg-light text-dark shadow sticky-top py-2">
@@ -27,8 +30,8 @@ $produits = $transaction->getAllProduct();
             <div class="d-flex justify-content-between align-items-center">
                 <!-- FIRST ROW -->
                 <div class="d-none d-sm-none d-md-block">
-                    <div class="nav-brand d-flex justify-content-center lign-items-center" routerLink="/">
-                        <h4 class="nav-brand mx-2">Finshop</h4>
+                    <div class="nav-brand d-flex justify-content-center lign-items-center">
+                        <h4 class="nav-brand mx-2">Fineshop</h4>
                         <img src="./assets/image/bg/shopping-bag.png" class="w-25" alt="" />
                     </div>
                 </div>
@@ -79,16 +82,16 @@ $produits = $transaction->getAllProduct();
                             </a>
                         </li>
                         <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
-                      <li class="dropdown nav-item">
-                        <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                           Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
-                        </a>
-                       <ul class="dropdown-menu">
-                         <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                         <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
-                        </ul>
-                       </li>
-                       <?php else : ?>
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        <?php else : ?>
                             <li class="nav-item">
                                 <a class="btn btn-dark text-white" href="./page/connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
@@ -102,7 +105,6 @@ $produits = $transaction->getAllProduct();
         </div>
     </header>
     <!-- HEADER END -->
-    <!-- Rest of your HTML content -->
 
     <section>
         <!-- caroussel slider -->
@@ -116,8 +118,13 @@ $produits = $transaction->getAllProduct();
                 <div class="carousel-item active c-item">
                     <img src="./assets/image/bg/carousse1.jpg" class="d-block w-100 c-img" alt="...">
                     <div class="carousel-caption custom-caption d-none d-md-block">
-                        <h5>Nos Nouveautés </h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eligendi aspernatur esse. Nemo, accusantium </p>
+                        <h3>Nouveautés</h3>
+                        <p>Découvrez notre nouvelle collection de vêtements tendance.</p>
+
+                        <p>
+                            Nos articles les plus vendus à prix réduits. Ne manquez pas ces
+                            incontournables !
+                        </p>
                         <button class="btn btn-outline-warning">Découvrir maintenant</button>
                     </div>
                 </div>
@@ -154,12 +161,18 @@ $produits = $transaction->getAllProduct();
         <div class="container">
             <h3 class="text-center py-2">Votre satisfaction est tout ce qui compte</h3>
             <div class="d-flex">
-                <div class="aside">
-                    <ul>
+                <div>
+                    <ul class="aside">
                         <h6>Categories</h6>
-                        <li class="aside-item"><a href="page/Bien etre et beauté.php" class="aside-link">Beauté et bien etre</a></li>
-                        <li class="aside-item"><a href="page/Accessoire Femme.php" class="aside-link">Accessoire Femmes</a></li>
-                        <li class="aside-item"><a href="page/Chaussures Hommes.php" class="aside-link">chaussures hommes</a></li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Soin et Béauté</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Accessoires Femmes</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="" class="nav-link">Chaussures Hommes</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="container">
@@ -215,6 +228,9 @@ $produits = $transaction->getAllProduct();
 
                 </div>
             </div>
+
+
+
         </div>
     </section>
     <!-- Categories chaussures -->

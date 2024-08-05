@@ -117,7 +117,7 @@ if (isset($_POST) && isset($_POST['click'])) {
       </div>
    </header>
    <div class="container">
-
+      <!-- FORMULAIRE POUR MODIFIER UN PRODUIT -->
       <form action="editproduit.php?idproduit=<?= $produit['id'] ?>" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
          <h5>Modifier un Produit</h5>
          <div class="col-md-6">
