@@ -100,7 +100,7 @@ $msg = "";
    <section>
       <div class="container p-4">
          <!-- Button trigger modal -->
-         <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
             Add New
          </button>
          <!-- Modal POUR AJOUTER UN PRODUIT -->
@@ -156,51 +156,48 @@ $msg = "";
             </div>
          </div>
          <div class="container-fluid">
-            <div class="row">
-               <!-- Rigth content -->
-               <div class="col-md-4">
-                  <ul class="nav-ul my-4 py-4 px-3">
-                     <h4>Categories</h4>
-                     <li class="nav-item"><a href="" class="nav-link">Beauté et bien etre </a></li>
-                     <li class="nav-item"><a href="" class="nav-link"> Accessoire Femme </a></li>
-                     <li class="nav-item"> <a href="" class="nav-link">chaussures Hommes</a></li>
-                  </ul>
-               </div>
-               <div class="col-md-8">
-                  <!-- left content -->
-                  <div class="row">
+            <div class="table-body mt-5">
+               <table class="table-striped">
+                  <!-- TABLE HEADER -->
+                  <thead class="p-3 bg-warning">
+                     <tr>
+                        <th>Image</th>
+                        <th>Nom produit</th>
+                        <th>description</th>
+                        <th>Categorie</th>
+                        <th>Prix Unitaire</th>
+                        <th>Action</th>
+                     </tr>
+                  </thead>
+                  <!-- TABLE BODY -->
+                  <tbody>
                      <?php foreach ($produits as $key => $produit) : ?>
-                        <div class="col-md-4 p-4">
-                           <div class="d-flex justify-content-center align-items-center">
-                              <div>
-                                 <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
-                                 <h4 class="title">
-                                    <?= $produit['nom'] ?>
-                                 </h4>
-                                 <div class="rating text-warning">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                 </div>
-                                 <div class="d-flex my-3">
-                                    <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
-                                    <div class="mx-3">
-                                       <span class="text-warning"><?= $produit['prixU'] ?></span> <br>
-                                    </div>
+                        <tr>
+                           <td>
+                              <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
+                              <h4 class="title">
+                           </td>
+                           <td><?= $produit['nom'] ?></td>
+                           <td class="w-25 descr">
+                              <p>
+                                 <?= $produit['description'] ?>
+                              </p>
+                           </td>
+                           <td><?= $produit['categorie'] ?></td>
+                           <td><?= $produit['prixU'] ?> Fcfa</td>
+                           <td>
+                              <div class="d-flex">
 
-                                 </div>
-                                 <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                 <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
+                                 <a class="text-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+                                 <a class="text-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
                               </div>
-                           </div>
-                        </div>
+                           </td>
+                        </tr>
                      <?php endforeach; ?>
-                  </div>
-               </div>
-
+                  </tbody>
+               </table>
             </div>
+
          </div>
 
       </div>

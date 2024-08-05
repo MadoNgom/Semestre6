@@ -25,14 +25,13 @@ $commandes = $transaction->getAllCommande();
    <title>Commande Client</title>
    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
-   <link rel="stylesheet" href="../assets/styles/list.css">
    <link rel="stylesheet" href="../assets/styles/nave.css">
 
 </head>
 
 <body>
-<!-- Header start -->
-<header class="bg-light text-dark shadow sticky-top py-2">
+   <!-- Header start -->
+   <header class="bg-light text-dark shadow sticky-top py-2 mb-4">
       <div class="container-fluid">
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
@@ -104,19 +103,15 @@ $commandes = $transaction->getAllCommande();
       </div>
    </header>
    <!-- HEADER END -->
-
-
-   <div class="container-fluid">
+   <div class="container mt-4">
       <table action="commandeclient.php" method="POST" class="table commandelist">
-         <thead class="table-dark">
+         <thead class="bg-warning border-0">
             <tr>
                <th>Id</th>
                <th>Date</th>
                <th>MontantTOT</th>
                <th>état</th>
                <th>details</th>
-
-
             </tr>
          </thead>
          <tbody>

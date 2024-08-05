@@ -31,4 +31,3 @@ if ($result == 1) {
     $result = $transaction->updatePanier($id_panier, $montantTOT);
     header('Location: panier.php');
 }
-?>
