@@ -165,13 +165,13 @@ $produits = $transaction->getAllProduct();
                     <ul class="aside">
                         <h6>Categories</h6>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Soin et Béauté</a>
+                            <a href="page/Bien etre et beauté.php" class="nav-link">Soin et Béauté</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Accessoires Femmes</a>
+                            <a href="page/femme.php" class="nav-link">Accessoires Femmes</a>
                         </li>
                         <li class="nav-item">
-                            <a href="" class="nav-link">Chaussures Hommes</a>
+                            <a href="page/homme.php" class="nav-link">Chaussures Hommes</a>
                         </li>
                     </ul>
                 </div>

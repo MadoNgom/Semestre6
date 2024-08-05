@@ -50,18 +50,18 @@ $produitsHomme = $transaction->getALLproductByFemme();
                     <ul class="nav justify-content-end">
                         <?php if (isBoutiquier()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="produits/listproduit.php">Mes Produits</a>
+                                <a class="nav-link text-dark" href="../produits/listproduit.php">Mes Produits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="Categorie/read.php">Categories</a>
+                                <a class="nav-link text-dark" href="../Categorie/read.php">Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                                <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                             </li>
                         <?php endif; ?>
                         <?php if (isAdmin()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                                <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
@@ -88,12 +88,12 @@ $produitsHomme = $transaction->getALLproductByFemme();
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                    <li><a class="dropdown-item" href="deconnection.php">Se déconnecter</a></li>
                                 </ul>
                             </li>
                         <?php else : ?>
                             <li class="nav-item">
-                                <a class="btn btn-dark text-white" href="./page/connexion.php">
+                                <a class="btn btn-dark text-white" href="connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
                                 </a>
                             </li>

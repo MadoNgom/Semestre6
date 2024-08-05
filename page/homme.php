@@ -25,16 +25,16 @@ $produitsHomme = $transaction->getALLproductByHomme();
 
 <body>
 
-    <!-- Header start -->
-    <header class="bg-light text-dark shadow sticky-top py-2">
+   <!-- Header start -->
+   <header class="bg-light text-dark shadow sticky-top py-2">
         <div class="container-fluid">
             <div class="d-flex justify-content-between align-items-center">
                 <!-- FIRST ROW -->
                 <div class="d-none d-sm-none d-md-block">
-                    <div class="nav-brand d-flex justify-content-center lign-items-center" routerLink="/">
+                    <a href="../index.php" class="nav-brand d-flex justify-content-center lign-items-center">
                         <h4 class="nav-brand mx-2">Finshop</h4>
-                        <img src="./assets/image/bg/shopping-bag.png" class="w-25" alt="" />
-                    </div>
+                        <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
+                    </a>
                 </div>
                 <!-- SEARCH BAR -->
                 <div class="my-auto">
@@ -51,18 +51,18 @@ $produitsHomme = $transaction->getALLproductByHomme();
                     <ul class="nav justify-content-end">
                         <?php if (isBoutiquier()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="produits/listproduit.php">Mes Produits</a>
+                                <a class="nav-link text-dark" href="../produits/listproduit.php">Mes Produits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="Categorie/read.php">Categories</a>
+                                <a class="nav-link text-dark" href="../Categorie/read.php">Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                                <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                             </li>
                         <?php endif; ?>
                         <?php if (isAdmin()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                                <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
@@ -70,7 +70,7 @@ $produitsHomme = $transaction->getALLproductByHomme();
                                 <div class="cart">
                                     Panier
                                     <i class="bi bi-cart-fill"></i>
-                                    <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                                    <span class="number bg-danger p-1 text-white rounded-circle fs-6">1</span>
                                 </div>
                             </a>
                         </li>
@@ -89,12 +89,12 @@ $produitsHomme = $transaction->getALLproductByHomme();
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                    <li><a class="dropdown-item" href="deconnection.php">Se déconnecter</a></li>
                                 </ul>
                             </li>
                         <?php else : ?>
                             <li class="nav-item">
-                                <a class="btn btn-dark text-white" href="./page/connexion.php">
+                                <a class="btn btn-dark text-white" href="connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
                                 </a>
                             </li>
