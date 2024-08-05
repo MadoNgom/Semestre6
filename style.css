@@ -3,6 +3,13 @@
   margin: 0;
   box-sizing: border-box;
 }
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #dddddd3e;
+}
 .aside-item {
   border: 1px solid yellow;
 }
