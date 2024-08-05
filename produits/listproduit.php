@@ -68,7 +68,7 @@ $msg = "";
                      </li>
                      <li class="nav-item">
                         <a href="" class="nav-link text-dark">
-                           Bonjour ! Admin 👋
+                           Bonjour ! Boutiquier 👋
                         </a>
                      </li>
                      <li class="dropdown nav-item">
@@ -79,7 +79,7 @@ $msg = "";
                         </a>
                         <ul class="dropdown-menu">
                            <li><a class="dropdown-item" href="#">Mon profile</a></li>
-                           <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                           <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
                         </ul>
                      </li>
                   <?php endif; ?>
@@ -166,39 +166,38 @@ $msg = "";
                      <li class="nav-item"> <a href="" class="nav-link">chaussures Hommes</a></li>
                   </ul>
                </div>
-               <div class="col-md-8">
-                  <!-- left content -->
-                  <div class="row">
-                     <?php foreach ($produits as $key => $produit) : ?>
-                        <div class="col-md-4 p-4">
-                           <div class="d-flex justify-content-center align-items-center">
-                              <div>
-                                 <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
-                                 <h4 class="title">
-                                    <?= $produit['nom'] ?>
-                                 </h4>
-                                 <div class="rating text-warning">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                 </div>
-                                 <div class="d-flex my-3">
-                                    <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
-                                    <div class="mx-3">
-                                       <span class="text-warning"><?= $produit['prixU'] ?></span> <br>
-                                    </div>
+               <div class="table-body">
+               <table class="table-stripped">
+                  <thead class="bg-warning text-black-50 rounded-2 p-4 shadow-sm text-black-50">
+                     <tr>
+                     <th>Image</th>
+                     <th>Nom</th>
+                     <th>Description</th>
+                     <th>Nom_categorie</th>
+                     <th>PrixU</th>
+                     <th>Action</th>
+                     </tr>
+                  </thead>
+                  <!-- TABLE BODY -->
+                  <tbody>
+                     <?php
+                     foreach ($produits as $key => $produit) { ?>
+                        <tr>
+                        <td class="img"> <img src="../assets/image/<?= $produit['image']?>"class="card-img-top" alt="..."></td>
+                           <td><?= $produit['nom'] ?></td>
+                           <td><?= $produit['description'] ?></td>
+                           <td><?= $produit['nom_categorie'] ?></td>
+                           <td><?= $produit['prixU'] ?></td>
+                           <td>
+                           <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+                           <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
+                           </td>
+                        </tr>
+                     <?php } ?>
 
-                                 </div>
-                                 <a class="btn btn-outline-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                 <a class="btn btn-outline-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
-                              </div>
-                           </div>
-                        </div>
-                     <?php endforeach; ?>
-                  </div>
-               </div>
+                  </tbody>
+               </table>
+            </div>
 
             </div>
          </div>

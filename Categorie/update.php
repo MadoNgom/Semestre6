@@ -60,35 +60,38 @@ if (isset($_POST) && isset($_POST['click'])) {
                <ul class="nav justify-content-end">
                   <?php if (isBoutiquier()) : ?>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="produits/listproduit.php">
+                        <a class="nav-link text-dark" href="../produits/listproduit.php">
                            Mes Produits</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="Categorie/read.php">
+                        <a class="nav-link text-dark" href="read.php">
                            Categories</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                        <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                      </li>
                   <?php endif; ?>
                   <?php if (isAdmin()) : ?>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                        <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                      </li>
                   <?php endif; ?>
+
                   <li class="nav-item">
                      <a href="" class="nav-link text-dark">
-                        <div class="cart">
-                           Panier
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
+                        Bonjour ! Boutiquier 👋
                      </a>
                   </li>
-                  <li class="nav-item">
-                     <a class="btn btn-dark text-white" href="./page/connexion.php">
-                        <i class="bi bi-person-fill"></i> connexion
+                  <li class="dropdown nav-item">
+                     <a class=" dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <i class="bi bi-bell-fill "></i>
+                        <span class="number fs-6  bg-danger text-white rounded-circle p-1 fs-6">1</span>
                      </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                        <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
+                     </ul>
                   </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
                      Finshop

@@ -150,11 +150,18 @@ public function getALLproductBienEtre($category = 'Bien etre et beauté') {
     } 
  }
 
- public function getProductByIdBoutiquier($id_boutiquier){
-     $result = $this->database->query("SELECT * FROM `Produit`WHERE id_boutiquier='$id_boutiquier'");
-     return $result->fetchAll();
+ public function getProductByIdBoutiquier($id_boutiquier)
+ {
+     $query = $this->database->prepare("
+         SELECT p.*, c.nom AS nom_categorie 
+         FROM Produit p
+         JOIN Categorie c ON p.id_categorie = c.id
+         WHERE p.id_boutiquier = :id_boutiquier
+     ");
+     $query->bindParam(':id_boutiquier', $id_boutiquier);
+     $query->execute();
+     return $query->fetchAll(PDO::FETCH_ASSOC);
  }
-
  public function getCategorieByIdBoutiquier($id_boutiquier){
     $result = $this->database->query("SELECT * FROM `Categorie`WHERE id_boutiquier='$id_boutiquier'");
     return $result->fetchAll();

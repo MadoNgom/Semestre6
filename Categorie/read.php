@@ -74,7 +74,7 @@ if (isset($_POST['click'])) {
                            Mes Produits</a>
                      </li>
                      <li class="nav-item">
-                        <a class="nav-link text-dark" href="Categorie/read.php">
+                        <a class="nav-link text-dark" href="read.php">
                            Categories</a>
                      </li>
                      <li class="nav-item">
@@ -89,7 +89,7 @@ if (isset($_POST['click'])) {
 
                   <li class="nav-item">
                      <a href="" class="nav-link text-dark">
-                        Bonjour ! Admin 👋
+                        Bonjour ! Boutiquier 👋
                      </a>
                   </li>
                   <li class="dropdown nav-item">
