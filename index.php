@@ -24,87 +24,87 @@ $produits = $transaction->getAllProduct();
 </head>
 
 <body>
-<header class="bg-light text-dark shadow sticky-top py-2">
-    <div class="container-fluid">
-        <div class="d-flex justify-content-between align-items-center">
-            <!-- FIRST ROW -->
-            <div class="d-none d-sm-none d-md-block">
-                <div class="nav-brand d-flex justify-content-center align-items-center">
-                    <h4 class="nav-brand mx-2">Fineshop</h4>
-                    <img src="./assets/image/bg/shopping-bag.png" class="w-25" alt="" />
+    <header class="bg-light text-dark shadow sticky-top py-2">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <!-- FIRST ROW -->
+                <div class="d-none d-sm-none d-md-block">
+                    <div class="nav-brand d-flex justify-content-center align-items-center">
+                        <h4 class="nav-brand mx-2">Fineshop</h4>
+                        <img src="./assets/image/bg/shopping-bag.png" class="w-25" alt="" />
+                    </div>
+                </div>
+                <!-- SEARCH BAR -->
+                <div class="my-auto">
+                    <form action="" role="Search">
+                        <div class="form-group d-flex my-2">
+                            <input type="search" placeholder="Rechercher un produit" class="form-control" />
+                            <button type="submit" class="btn bg-warning text-white mx-1">
+                                <i class="bi bi-search"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="my-auto">
+                    <ul class="nav justify-content-end">
+                        <?php if (isBoutiquier()) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="produits/listproduit.php">Mes Produits</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="Categorie/read.php">Categories</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (isAdmin()) : ?>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (!isBoutiquier() && !isAdmin()) : ?>
+                            <li class="nav-item">
+                                <a href="panier/panier.php" class="nav-link text-dark">
+                                    <div class="cart">
+                                        Panier
+                                        <i class="bi bi-cart-fill"></i>
+                                        <span class="number bg-danger text-white rounded-circle fs-6">1</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="panier/commande.php" class="nav-link text-dark">
+                                    <div class="cart">
+                                        Mes commandes
+                                        <i class="bi bi-bag-check-fill"></i>
+                                    </div>
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
+                            <li class="dropdown nav-item">
+                                <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Mon profil</a></li>
+                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                </ul>
+                            </li>
+                        <?php else : ?>
+                            <li class="nav-item">
+                                <a class="btn btn-dark text-white" href="./page/connexion.php">
+                                    <i class="bi bi-person-fill"></i> Connexion
+                                </a>
+                            </li>
+                        <?php endif; ?>
+                        <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">Finshop</a>
+                    </ul>
                 </div>
             </div>
-            <!-- SEARCH BAR -->
-            <div class="my-auto">
-                <form action="" role="Search">
-                    <div class="form-group d-flex my-2">
-                        <input type="search" placeholder="Rechercher un produit" class="form-control" />
-                        <button type="submit" class="btn bg-warning text-white mx-1">
-                            <i class="bi bi-search"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <div class="my-auto">
-                <ul class="nav justify-content-end">
-                    <?php if (isBoutiquier()) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="produits/listproduit.php">Mes Produits</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="Categorie/read.php">Categories</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (isAdmin()) : ?>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (!isBoutiquier() && !isAdmin()) : ?>
-                        <li class="nav-item">
-                            <a href="panier/panier.php" class="nav-link text-dark">
-                                <div class="cart">
-                                    Panier
-                                    <i class="bi bi-cart-fill"></i>
-                                    <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="panier/commande.php" class="nav-link text-dark">
-                                <div class="cart">
-                                    Mes commandes
-                                    <i class="bi bi-bag-check-fill"></i>
-                                </div>
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
-                        <li class="dropdown nav-item">
-                            <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Bienvenu ! <?php echo htmlspecialchars($_SESSION['User']['nomComplet']); ?> 👋
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                                <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
-                            </ul>
-                        </li>
-                    <?php else : ?>
-                        <li class="nav-item">
-                            <a class="btn btn-dark text-white" href="./page/connexion.php">
-                                <i class="bi bi-person-fill"></i> Connexion
-                            </a>
-                        </li>
-                    <?php endif; ?>
-                    <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">Finshop</a>
-                </ul>
-            </div>
         </div>
-    </div>
-</header>
+    </header>
 
     <section>
         <!-- caroussel slider -->
@@ -162,10 +162,10 @@ $produits = $transaction->getAllProduct();
             <h3 class="text-center py-2">Votre satisfaction est tout ce qui compte</h3>
             <div class="d-flex">
                 <div>
-                    <ul class="aside">
+                    <ul class="aside px-3 shadow">
                         <h6>Categories</h6>
                         <li class="nav-item">
-                            <a href="page/Bien etre et beauté.php" class="nav-link">Soin et Béauté</a>
+                            <a href="index.php" class="nav-link">Tout les Produits</a>
                         </li>
                         <li class="nav-item">
                             <a href="page/femme.php" class="nav-link">Accessoires Femmes</a>
@@ -255,11 +255,11 @@ $produits = $transaction->getAllProduct();
                         <div class="d-flex justify-content-center align-items-center border-1">
                             <div class="cart p-2">
                                 <!-- AFFicher Image -->
-                                <img src="assets/image/<?= $produit['image'] ?>"" width=" 150px" alt="" />
+                                <img src="assets/image/<?= $produit['image'] ?>" width=" 150px" alt="" />
                                 <!-- Nom dU PRODUIT -->
-                                <h4 class="title"><?= $produit['nom'] ?></h4>
+                                <h5 class="text-center fs-5 text-black-50"><?= $produit['nom'] ?></h5>
                                 <!-- Etoiles -->
-                                <div class="rating text-warning">
+                                <div class="rating text-warning fs-6 text-center">
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-fill"></i>
@@ -269,7 +269,7 @@ $produits = $transaction->getAllProduct();
                                 <div class="text-center my-3">
                                     <div class="mx-3">
                                         <!-- reduction -->
-                                        <span><del><?= $produit['prixU'] ?></del></span> <br />
+                                        <span><?= $produit['prixU'] ?> Fcfa</span> <br />
                                         <!-- Prixs -->
                                         <span class="text-warning"><?= $produit['prixU'] ?></span>
                                     </div>
@@ -280,14 +280,6 @@ $produits = $transaction->getAllProduct();
                 <?php endforeach; ?>
             </div>
         </section>
-    </section>
-    <!-- Nos partenaires -->
-    <section>
-        <div class="container">
-            <h5>
-                Nos partenaires
-            </h5>
-        </div>
     </section>
     <footer class="container-fluid text-white text-center text-lg-start bg-dark">
         <!-- Grid container -->
