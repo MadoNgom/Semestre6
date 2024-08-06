@@ -50,18 +50,18 @@ $produitsHomme = $transaction->getALLproductByFemme();
                     <ul class="nav justify-content-end">
                         <?php if (isBoutiquier()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="produits/listproduit.php">Mes Produits</a>
+                                <a class="nav-link text-dark" href="../produits/listproduit.php">Mes Produits</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="Categorie/read.php">Categories</a>
+                                <a class="nav-link text-dark" href="../Categorie/read.php">Categories</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="commande/commandeclient.php">Commande clients</a>
+                                <a class="nav-link text-dark" href="../commande/commandeclient.php">Commande clients</a>
                             </li>
                         <?php endif; ?>
                         <?php if (isAdmin()) : ?>
                             <li class="nav-item">
-                                <a class="nav-link text-dark" href="users/listboutiquier.php">Gestions Users</a>
+                                <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                             </li>
                         <?php endif; ?>
                         <li class="nav-item">
@@ -88,12 +88,12 @@ $produitsHomme = $transaction->getALLproductByFemme();
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Mon profil</a></li>
-                                    <li><a class="dropdown-item" href="page/deconnection.php">Se déconnecter</a></li>
+                                    <li><a class="dropdown-item" href="deconnection.php">Se déconnecter</a></li>
                                 </ul>
                             </li>
                         <?php else : ?>
                             <li class="nav-item">
-                                <a class="btn btn-dark text-white" href="./page/connexion.php">
+                                <a class="btn btn-dark text-white" href="connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
                                 </a>
                             </li>
@@ -149,6 +149,7 @@ $produitsHomme = $transaction->getALLproductByFemme();
             </div>
         </div>
     </section>
+
     <footer class="container-fluid text-white text-center text-lg-start bg-dark">
         <!-- Grid container -->
         <div class="container p-4">
@@ -206,6 +207,7 @@ $produitsHomme = $transaction->getALLproductByFemme();
         </div>
         <!-- Copyright -->
     </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

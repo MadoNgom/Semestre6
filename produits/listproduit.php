@@ -27,6 +27,10 @@ $msg = "";
    <link rel="stylesheet" href="../assets/bootstrap/css/bootstrap.min.css">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
    <link rel="stylesheet" href="../style.css">
+   <script defer src="https://code.jquery.com/jquery-3.7.1.js"></script>
+   <script defer src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+   <script defer src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap5.js"></script>
+   <script defer src="../main.js"></script>
 </head>
 
 <body>
@@ -68,7 +72,7 @@ $msg = "";
                      </li>
                      <li class="nav-item">
                         <a href="" class="nav-link text-dark">
-                           Bonjour ! Admin 👋
+                           Bonjour ! Boutiquier 👋
                         </a>
                      </li>
                      <li class="dropdown nav-item">
@@ -79,7 +83,7 @@ $msg = "";
                         </a>
                         <ul class="dropdown-menu">
                            <li><a class="dropdown-item" href="#">Mon profile</a></li>
-                           <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                           <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
                         </ul>
                      </li>
                   <?php endif; ?>
@@ -97,112 +101,93 @@ $msg = "";
       </div>
    </header>
    <!-- HEADER END -->
-   <section>
-      <div class="container p-4">
-         <!-- Button trigger modal -->
-         <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Add New
-         </button>
-         <!-- Modal POUR AJOUTER UN PRODUIT -->
-         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-               <div class="modal-content">
-                  <div class="modal-header">
-                     <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un produit</h1>
-                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                     <form action="ajoutproduit.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
-                        <div class="col-md-6">
-                           <label for="Nom" class="form-label">Nom</label>
-                           <input name="nom" type="text" class="form-control" id="Nom" required>
+   <div class="container py-4">
+      <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">
+         Add New
+      </button>
+      <!-- Modal POUR AJOUTER UN PRODUIT -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+         <div class="modal-dialog">
+            <div class="modal-content">
+               <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">Ajouter un produit</h1>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body">
+                  <form action="ajoutproduit.php" method="POST" enctype="multipart/form-data" class="row g-3 boutiquierform">
+                     <div class="col-md-6">
+                        <label for="Nom" class="form-label">Nom</label>
+                        <input name="nom" type="text" class="form-control" id="Nom" required>
+                     </div>
+                     <div class="col-md-6">
+                        <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                        <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+                     </div>
+                     <div class="mb-3">
+                        <label for="prixU" class="form-label">Prix Unitaire</label>
+                        <input name="prixU" type="number" class="form-control" id="prixU" step="0.01" required>
+                     </div>
+                     <div class="mb-3">
+                        <label for="formFile" class="form-label">Image du produit</label>
+                        <input name="image" class="form-control" type="file" id="formFile" required>
+                     </div>
+                     <div class="col-md-6">
+                        <select name="id_categorie" class="form-select" aria-label="Default select example" required>
+                           <?php
+                           $connexion = new PDO('mysql:host=localhost;dbname=fineShop;', 'root', '');
+                           $query = $connexion->prepare("SELECT id, nom FROM Categorie");
+                           $query->execute();
+                           while ($ctgorie = $query->fetch(PDO::FETCH_ASSOC)) {
+                              echo "<option value='{$ctgorie['id']}'>{$ctgorie['nom']}</option>";
+                           }
+                           ?>
+                        </select>
+                     </div>
+                     <div class="col-12">
+                        <button name="click" type="submit" class="btn btn-primary">Ajouter</button>
+                        <a href="listproduit.php" class="btn btn-danger">Annuler</a>
+                     </div>
+                     <?php if ($msg) : ?>
+                        <div class="alert alert-danger" role="alert">
+                           <?php echo $msg; ?>
                         </div>
-                        <div class="col-md-6">
-                           <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                           <textarea name="description" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
-                        </div>
-                        <div class="mb-3">
-                           <label for="prixU" class="form-label">Prix Unitaire</label>
-                           <input name="prixU" type="number" class="form-control" id="prixU" step="0.01" required>
-                        </div>
-                        <div class="mb-3">
-                           <label for="formFile" class="form-label">Image du produit</label>
-                           <input name="image" class="form-control" type="file" id="formFile" required>
-                        </div>
-                        <div class="col-md-6">
-                           <select name="id_categorie" class="form-select" aria-label="Default select example" required>
-                              <?php
-                              $connexion = new PDO('mysql:host=localhost;dbname=fineShop;', 'root', '');
-                              $query = $connexion->prepare("SELECT id, nom FROM Categorie");
-                              $query->execute();
-                              while ($ctgorie = $query->fetch(PDO::FETCH_ASSOC)) {
-                                 echo "<option value='{$ctgorie['id']}'>{$ctgorie['nom']}</option>";
-                              }
-                              ?>
-                           </select>
-                        </div>
-                        <div class="col-12">
-                           <button name="click" type="submit" class="btn btn-primary">Ajouter</button>
-                           <a href="listproduit.php" class="btn btn-danger">Annuler</a>
-                        </div>
-                        <?php if ($msg) : ?>
-                           <div class="alert alert-danger" role="alert">
-                              <?php echo $msg; ?>
-                           </div>
-                        <?php endif; ?>
-                     </form>
-                  </div>
+                     <?php endif; ?>
+                  </form>
                </div>
             </div>
          </div>
-         <div class="container-fluid">
-            <div class="table-body mt-5">
-               <table class="table-striped">
-                  <!-- TABLE HEADER -->
-                  <thead class="p-3 bg-warning">
-                     <tr>
-                        <th>Image</th>
-                        <th>Nom produit</th>
-                        <th>description</th>
-                        <th>Categorie</th>
-                        <th>Prix Unitaire</th>
-                        <th>Action</th>
-                     </tr>
-                  </thead>
-                  <!-- TABLE BODY -->
-                  <tbody>
-                     <?php foreach ($produits as $key => $produit) : ?>
-                        <tr>
-                           <td>
-                              <img src="../assets/image/<?= $produit['image'] ?>" height="150px" class="text-center" alt="">
-                              <h4 class="title">
-                           </td>
-                           <td><?= $produit['nom'] ?></td>
-                           <td class="w-25 descr">
-                              <p>
-                                 <?= $produit['description'] ?>
-                              </p>
-                           </td>
-                           <td><?= $produit['categorie'] ?></td>
-                           <td><?= $produit['prixU'] ?> Fcfa</td>
-                           <td>
-                              <div class="d-flex">
-
-                                 <a class="text-success" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
-                                 <a class="text-danger" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
-                              </div>
-                           </td>
-                        </tr>
-                     <?php endforeach; ?>
-                  </tbody>
-               </table>
-            </div>
-
-         </div>
-
       </div>
-   </section>
+      <div class="table-body mt-2">
+         <table id="example" class="table" style="width:100%">
+            <thead class="bg-warning text-black-50 rounded-2 p-4 shadow-sm text-black-50">
+               <tr>
+                  <th>Image</th>
+                  <th>Nom</th>
+                  <th>Nom_categorie</th>
+                  <th>PrixU</th>
+                  <th>Action</th>
+               </tr>
+            </thead>
+            <tbody>
 
+               <?php
+               foreach ($produits as $key => $produit) { ?>
+                  <tr>
+                     <td> <img src="../assets/image/<?= $produit['image'] ?>" class="card-img-top" alt="product-image"></td>
+                     <td><?= $produit['nom'] ?></td>
+                     <td><?= $produit['nom_categorie'] ?></td>
+                     <td><?= $produit['prixU'] ?> FCFA</td>
+                     <td>
+                        <a class="text-success fs-6" href="editproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-pencil-square"></i></a>
+                        <a class="text-danger fs-6" href="deleteproduit.php?idproduit=<?= $produit['id'] ?>"><i class="bi bi-trash"></i></a>
+                     </td>
+                  </tr>
+               <?php } ?>
+
+            </tbody>
+         </table>
+      </div>
+   </div>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 

@@ -83,7 +83,7 @@ $users = $transaction->getAlluser();
                      </a>
                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Mon profile</a></li>
-                        <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                        <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
                      </ul>
                   </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
@@ -173,8 +173,6 @@ $users = $transaction->getAlluser();
                            <td><?= $user['address'] ?></td>
                            <td><?= $user['profile'] ?></td>
                            <td><?= $user['dateCreation'] ?></td>
-                           <td>
-
                            <td>
                               <a href="editUser.php?idUser=<?= $user['id'] ?>" class="text-success mx-2 fs-5 text-decoration-none"><i class="bi bi-pencil-square"></i></a>
                               <a href="deleteuser.php?iduser=<?= $user['id'] ?>" class="text-danger text-decoration-none"><i class="bi bi-trash"></i></a>

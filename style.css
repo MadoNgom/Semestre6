@@ -10,6 +10,14 @@ a {
   text-decoration: none;
   color: #dddddd3e;
 }
+td {
+  padding: 10px 0;
+}
+
+.card-img-top {
+  height: 100px;
+  width: 150px;
+}
 .aside {
   padding: 1rem;
   border: 1px solid #dddddd3e;
