@@ -161,6 +161,7 @@ if (isset($_POST['click'])) {
             <table class="table table-centered mb-0">
                <thead class="table-dark table-striped">
                   <tr>
+                     <th>Id</th>
                      <th>Nom</th>
                      <th>Description</th>
                      <th>Action</th>

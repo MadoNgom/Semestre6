@@ -10,6 +10,14 @@ a {
   text-decoration: none;
   color: #dddddd3e;
 }
+td {
+  padding: 10px 0;
+}
+
+.card-img-top {
+  height: 100px;
+  width: 150px;
+}
 .aside {
   padding: 1rem;
   border: 1px solid #dddddd3e;
@@ -98,4 +106,45 @@ td img {
   margin-right: 0.5rem;
   border-radius: 50%;
   vertical-align: middle;
+}
+.table-image {
+  td,
+  th {
+    vertical-align: middle;
+  }
+}
+.btn {
+  background-color: #05a405;
+  color: #fff;
+}
+th {
+  vertical-align: middle;
+}
+
+.edit {
+  color: #0ad66d;
+}
+.delete {
+  color: red;
+}
+
+table {
+  border-radius: 0.8rem;
+  width: 100%;
+}
+.table,
+th,
+td {
+  padding: 0.5rem;
+}
+td img {
+  width: 100px;
+  aspect-ratio: 16/9;
+  margin-right: 0.5rem;
+  border-radius: 5px;
+
+  vertical-align: text-top;
+}
+.descr {
+  font-size: 10px;
 }
