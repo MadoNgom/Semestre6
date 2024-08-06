@@ -36,7 +36,7 @@ $users = $transaction->getAlluser();
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
                     <a href="../index.php" class="nav-brand d-flex justify-content-center lign-items-center">
-                        <h4 class="nav-brand mx-2">Finshop</h4>
+                        <h4 class="nav-brand mx-2 text-dark">Finshop</h4>
                         <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
                     </a>
                 </div>
