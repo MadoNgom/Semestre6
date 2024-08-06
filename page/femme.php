@@ -149,7 +149,7 @@ $produitsFemme = $transaction->getALLproductByFemme();
                     </div>
                 <?php endforeach; ?>
             </div>
-        </div>
+        </div><br><br>
     </section>
 
     <footer class="container-fluid text-white text-center text-lg-start bg-dark">

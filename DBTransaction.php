@@ -117,7 +117,16 @@ public function connexion($email,$pwd){
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
-
+public function getALLproducts($category = 'Tous Les Produits') {
+    $stmt = $this->database->prepare(
+        "SELECT Produit.* FROM Produit 
+         JOIN Categorie ON Produit.id_categorie = Categorie.id 
+         WHERE Categorie.nom = :category"
+    );
+    $stmt->bindParam(':category', $category);
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
 public function getALLproductByFemme($category = 'Accessoires Femmes') {
     $stmt = $this->database->prepare(
         "SELECT Produit.* FROM Produit 

@@ -32,10 +32,11 @@ $Produitscommandes=$transaction->getProduitCommande($_GET['idcommande']);
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
-               <div class="nav-brand d-flex justify-content-center lign-items-center">
-                  <h4 class="nav-brand mx-2">Fineshop</h4>
-               </div>
-            </div>
+                    <a href="../index.php" class="nav-brand d-flex justify-content-center lign-items-center">
+                        <h4 class="nav-brand mx-2">Finshop</h4>
+                        <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
+                    </a>
+                </div>
             <!-- SEARCH BAR -->
             <div class="my-auto">
                <form action="" role="Search">
@@ -67,28 +68,22 @@ $Produitscommandes=$transaction->getProduitCommande($_GET['idcommande']);
                         <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                      </li>
                   <?php endif; ?>
+
                   <li class="nav-item">
-                     <a href="../panier/panier.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Panier
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
+                     <a href="" class="nav-link text-dark">
+                        Bonjour ! Boutiquier 👋
                      </a>
                   </li>
-                  <li class="nav-item">
-                     <a href="../panier/commande.php" class="nav-link text-dark">
-                        <div class="cart">
-                           Commande
-                           <i class="bi bi-cart-fill"></i>
-                           <span class="number bg-danger text-white rounded-circle fs-6">1</span>
-                        </div>
+                  <li class="dropdown nav-item">
+                     <a class=" dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                        <i class="bi bi-bell-fill "></i>
+                        <span class="number fs-6  bg-danger text-white rounded-circle p-1 fs-6">1</span>
                      </a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="btn btn-dark text-white" href="../page/connexion.php">
-                        <i class="bi bi-person-fill"></i> connexion
-                     </a>
+                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#">Mon profile</a></li>
+                        <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
+                     </ul>
                   </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">
                      Finshop
