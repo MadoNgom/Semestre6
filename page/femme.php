@@ -6,7 +6,7 @@ require('../page/roles.php');
 require('../DBTransaction.php');
 
 $transaction = new DBTransaction();
-$produitsHomme = $transaction->getALLproductByFemme();
+$produitsFemme = $transaction->getALLproductByFemme();
 
 ?>
 <!DOCTYPE html>
@@ -119,7 +119,7 @@ $produitsHomme = $transaction->getALLproductByFemme();
             <h5 class=" text-center pt-4 mb-2">Nos Accessoires pour femme saura satisfaire toutes vos envies</h5>
             <div class="line bg-warning"></div>
             <div class="row">
-                <?php foreach ($produitsHomme as $produit) : ?>
+                <?php foreach ($produitsFemme as $produit) : ?>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center align-items-center">
                             <div>
