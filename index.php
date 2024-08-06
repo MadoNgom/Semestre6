@@ -127,23 +127,33 @@ $produitsHomme = $transaction->getALLproductByHomme();
                             Nos articles les plus vendus à prix réduits. Ne manquez pas ces
                             incontournables !
                         </p>
-                        <button class="btn btn-outline-warning">Découvrir maintenant</button>
+                        <button class="btn1">Découvrir maintenant</button>
                     </div>
                 </div>
                 <div class="carousel-item c-item">
                     <img src="./assets/image/bg/shop3.jpg" class="d-block w-100 c-img" alt="...">
                     <div class="carousel-caption custom-caption d-none d-md-block">
-                        <h5>Nos Nouveautés </h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eligendi aspernatur esse. Nemo, accusantium </p>
-                        <button class="btn btn-outline-warning">Découvrir maintenant</button>
+                    <h3>Nouveautés</h3>
+                <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
+
+                 <p>
+                    Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
+                    incontournables pour compléter votre look !
+                </p>
+                        <button class="btn1">Découvrir maintenant</button>
                     </div>
                 </div>
                 <div class="carousel-item c-item">
                     <img src="./assets/image/bg/shop3.jpg" class="d-block w-100 c-img" alt="...">
                     <div class="carousel-caption custom-caption d-none d-md-block">
-                        <h5>Nos Nouveautés </h5>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex eligendi aspernatur esse. Nemo, accusantium </p>
-                        <button class="btn btn-outline-warning">Découvrir maintenant</button>
+                    <h3>Nouveautés</h3>
+                     <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
+
+                     <p>
+                       Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
+                       incontournables pour compléter votre look !
+                     </p>
+                        <button class="btn1">Découvrir maintenant</button>
                     </div>
                 </div>
             </div>
@@ -310,40 +320,6 @@ $produitsHomme = $transaction->getALLproductByHomme();
             </div>
         </div>
         <!-- Nouvelles arrivages de chaussures  -->
-        <section class="container">
-            <h3 class="text-center text-dark mt-2">Nouvelles Arrivages de shoes </h3>
-            <div class="row">
-                <!-- Parcourir liste Produits chaussures  -->
-                <?php foreach ($produits as $key => $produit) : ?>
-                    <div class="col-md-4">
-                        <div class="d-flex justify-content-center align-items-center border-1">
-                            <div class="cart p-2">
-                                <!-- AFFicher Image -->
-                                <img src="assets/image/<?= $produit['image'] ?>" width=" 150px" alt="" />
-                                <!-- Nom dU PRODUIT -->
-                                <h5 class="text-center fs-5 text-black-50"><?= $produit['nom'] ?></h5>
-                                <!-- Etoiles -->
-                                <div class="rating text-warning fs-6 text-center">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-half"></i>
-                                </div>
-                                <div class="text-center my-3">
-                                    <div class="mx-3">
-                                        <!-- reduction -->
-                                        <span><?= $produit['prixU'] ?> Fcfa</span> <br />
-                                        <!-- Prixs -->
-                                        <span class="text-warning"><?= $produit['prixU'] ?></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-        </section>
     </section>
     <footer class="container-fluid text-white text-center text-lg-start bg-dark">
         <!-- Grid container -->

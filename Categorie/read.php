@@ -52,7 +52,7 @@ if (isset($_POST['click'])) {
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
                <div class="nav-brand d-flex justify-content-center lign-items-center">
-                  <h4 class="nav-brand mx-2">Fineshop</h4>
+                  <a href="../index.php" class="text-dark nav-brand mx-2">Fineshop</a>
                </div>
             </div>
             <!-- SEARCH BAR -->
@@ -100,7 +100,7 @@ if (isset($_POST['click'])) {
                      </a>
                      <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Mon profile</a></li>
-                        <li><a class="dropdown-item" href="#">se deconnecté</a></li>
+                        <li><a class="dropdown-item" href="../page/deconnection.php">se deconnecté</a></li>
                      </ul>
                   </li>
                   <a class="navbar-brand nav-link text-dark d-block d-sm-block d-md-none d-lg-none" href="#">

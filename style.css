@@ -148,3 +148,9 @@ td img {
 .descr {
   font-size: 10px;
 }
+.btn1{
+  background-color: #ffffff;
+  border-radius: 5px;
+  padding: 0.5rem;
+  border: 0;
+}

@@ -62,6 +62,7 @@ $produitsBienEtre = $transaction->getALLproductBienEtre();
                                 <a class="nav-link text-dark" href="../users/listboutiquier.php">Gestions Users</a>
                             </li>
                         <?php endif; ?>
+                        <?php if (!isBoutiquier() && !isAdmin()) : ?>
                         <li class="nav-item">
                             <a href="panier/panier.php" class="nav-link text-dark">
                                 <div class="cart">
@@ -79,6 +80,7 @@ $produitsBienEtre = $transaction->getALLproductBienEtre();
                                 </div>
                             </a>
                         </li>
+                        <?php endif; ?>
                         <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
                             <li class="dropdown nav-item">
                                 <a class="dropdown-toggle nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">

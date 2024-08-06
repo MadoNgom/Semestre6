@@ -107,7 +107,7 @@ public function connexion($email,$pwd){
     return $result->fetchAll();
  }
 
- public function getALLproductByHomme($category = 'Hommes') {
+ public function getALLproductByHomme($category = 'Chaussure Hommes') {
     $stmt = $this->database->prepare(
         "SELECT Produit.* FROM Produit 
          JOIN Categorie ON Produit.id_categorie = Categorie.id 
@@ -118,7 +118,7 @@ public function connexion($email,$pwd){
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-public function getALLproductByFemme($category = 'Femmes') {
+public function getALLproductByFemme($category = 'Accessoires Femmes') {
     $stmt = $this->database->prepare(
         "SELECT Produit.* FROM Produit 
          JOIN Categorie ON Produit.id_categorie = Categorie.id 
@@ -129,7 +129,7 @@ public function getALLproductByFemme($category = 'Femmes') {
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
 }
 
-public function getALLproductBienEtre($category = 'Bien etre et beauté') {
+public function getALLproductBienEtre($category = 'Beauté et bien être') {
     $stmt = $this->database->prepare(
         "SELECT Produit.* FROM Produit 
          JOIN Categorie ON Produit.id_categorie = Categorie.id 
