@@ -65,23 +65,23 @@ $produitsFemme = $transaction->getALLproductByFemme();
                             </li>
                         <?php endif; ?>
                         <?php if (!isBoutiquier() && !isAdmin()) : ?>
-                        <li class="nav-item">
-                            <a href="panier/panier.php" class="nav-link text-dark">
-                                <div class="cart">
-                                    Panier
-                                    <i class="bi bi-cart-fill"></i>
-                                    <span class="number bg-danger p-1 text-white rounded-circle fs-6">1</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="panier/commande.php" class="nav-link text-dark">
-                                <div class="cart">
-                                    Mes commandes
-                                    <i class="bi bi-bag-check-fill"></i>
-                                </div>
-                            </a>
-                        </li>
+                            <li class="nav-item">
+                                <a href="panier/panier.php" class="nav-link text-dark">
+                                    <div class="cart">
+                                        Panier
+                                        <i class="bi bi-cart-fill"></i>
+                                        <span class="number bg-danger p-1 text-white rounded-circle fs-6">1</span>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="panier/commande.php" class="nav-link text-dark">
+                                    <div class="cart">
+                                        Mes commandes
+                                        <i class="bi bi-bag-check-fill"></i>
+                                    </div>
+                                </a>
+                            </li>
                         <?php endif; ?>
                         <?php if (isset($_SESSION['User']['nomComplet'])) : ?>
                             <li class="dropdown nav-item">
@@ -124,7 +124,7 @@ $produitsFemme = $transaction->getALLproductByFemme();
                 <?php foreach ($produitsFemme as $produit) : ?>
                     <div class="col-md-4">
                         <div class="d-flex justify-content-center align-items-center">
-                            <div>
+                            <div class="text-center">
                                 <img src="../assets/image/<?= htmlspecialchars($produit['image']) ?>" height="150px" alt="">
                                 <h4 class="title">
                                     <?= htmlspecialchars($produit['nom']) ?>
@@ -136,14 +136,14 @@ $produitsFemme = $transaction->getALLproductByFemme();
                                     <i class="bi bi-star-fill"></i>
                                     <i class="bi bi-star-half"></i>
                                 </div>
-                                <div class="d-flex my-3">
+                                <div class="d-flex justify-content-center align-items-center my-3">
                                     <a href="#"><i class="bi bi-heart text-black fs-5"></i></a>
                                     <div class="mx-3">
                                         <span class="text-warning"><?= htmlspecialchars($produit['prixU']) ?></span> <br>
                                     </div>
                                     <a href="#"><i class="bi bi-cart4 text-black fs-5"></i></a>
                                 </div>
-                                <a class="btn btn-danger" href="../panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>">Ajouter au Panier</a>
+                                <a class="btn btn-warning text-light d-block my-3" href="../panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>">Ajouter au Panier</a>
                             </div>
                         </div>
                     </div>

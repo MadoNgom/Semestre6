@@ -4,6 +4,11 @@
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
 }
+a {
+  text-decoration: none;
+  color: #000;
+}
+
 .banner {
   background-image: url(../image/bg/carousse1.jpg);
   background-size: cover;

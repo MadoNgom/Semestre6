@@ -98,7 +98,7 @@ $produitsHomme = $transaction->getALLproductByHomme();
                             </li>
                         <?php else : ?>
                             <li class="nav-item">
-                                <a class="btn btn-dark text-white" href="./page/connexion.php">
+                                <a class="btn btn-dark" href="./page/connexion.php">
                                     <i class="bi bi-person-fill"></i> Connexion
                                 </a>
                             </li>
@@ -129,33 +129,33 @@ $produitsHomme = $transaction->getALLproductByHomme();
                             Nos articles les plus vendus à prix réduits. Ne manquez pas ces
                             incontournables !
                         </p>
-                        <button class="btn1">Découvrir maintenant</button>
+                        <button class="btn btn-warning">Découvrir maintenant</button>
                     </div>
                 </div>
                 <div class="carousel-item c-item">
                     <img src="./assets/image/bg/shop3.jpg" class="d-block w-100 c-img" alt="...">
                     <div class="carousel-caption custom-caption d-none d-md-block">
-                    <h3>Nouveautés</h3>
-                <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
+                        <h3>Nouveautés</h3>
+                        <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
 
-                 <p>
-                    Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
-                    incontournables pour compléter votre look !
-                </p>
-                        <button class="btn1">Découvrir maintenant</button>
+                        <p>
+                            Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
+                            incontournables pour compléter votre look !
+                        </p>
+                        <button class="btn btn-warning">Découvrir maintenant</button>
                     </div>
                 </div>
                 <div class="carousel-item c-item">
                     <img src="./assets/image/bg/shop3.jpg" class="d-block w-100 c-img" alt="...">
                     <div class="carousel-caption custom-caption d-none d-md-block">
-                    <h3>Nouveautés</h3>
-                     <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
+                        <h3>Nouveautés</h3>
+                        <p>Découvrez notre nouvelle collection d'accessoires tendance pour femme.</p>
 
-                     <p>
-                       Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
-                       incontournables pour compléter votre look !
-                     </p>
-                        <button class="btn1">Découvrir maintenant</button>
+                        <p>
+                            Nos accessoires les plus vendus à prix réduits. Ne manquez pas ces
+                            incontournables pour compléter votre look !
+                        </p>
+                        <button class="btn btn-warning">Découvrir maintenant</button>
                     </div>
                 </div>
             </div>
@@ -175,150 +175,149 @@ $produitsHomme = $transaction->getALLproductByHomme();
         <div class="container">
             <h3 class="text-center py-2">Votre satisfaction est tout ce qui compte</h3>
             <div class="d-flex">
-                <div>
+                <div class="mx-4 px-1">
                     <ul class="aside px-3 shadow">
                         <h6>Categories</h6>
-                        <li class="nav-item">
-                            <a href="page/produits.php" class="nav-link">Tout les Produits</a>
+                        <li class="nav-item nav-link-wrap">
+                            <a href="#1" class="nav-link">Tout les Produits</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="page/femme.php" class="nav-link">Accessoires Femmes</a>
+                        <li class="nav-item nav-link-wrap">
+                            <a href="#2" class="nav-link">Accessoires Femmes</a>
                         </li>
-                        <li class="nav-item">
-                            <a href="page/homme.php" class="nav-link">Chaussures Hommes</a>
+                        <li class="nav-item nav-link-wrap">
+                            <a href="#3" class="nav-link">Chaussures Hommes</a>
                         </li>
                     </ul>
                 </div>
                 <div class="container">
-                    <!-- pARCOURIR LES Produits  -->
-                    <div class="liste-produts product">
-                        <?php foreach ($Allproduits as $key => $produit) : ?>
-                            <!-- Afficher le produit-->
-                            <div class="box py-2 py-4">
-                                <!-- <span>40%</span> -->
-                                <div class="card-img">
-                                    <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
-                                </div>
+                    <section id="1">
+                        <!-- pARCOURIR LES Produits  -->
+                        <div class="liste-produts product">
+                            <?php foreach ($Allproduits as $key => $produit) : ?>
+                                <!-- Afficher le produit-->
+                                <div class="box py-2 py-4">
+                                    <!-- <span>40%</span> -->
+                                    <div class="card-img">
+                                        <img src="assets/image/<?= $produit['image'] ?>" height="150px" alt="">
+                                    </div>
 
-                                <div class="card-body mb-2">
-                                    <h6><?= $produit['nom'] ?></h6>
-                                    <h5><?= $produit['prixU'] ?></h5>
-                                    <div class="d-flex justify-content-between align-items-center">
+                                    <div class="card-body mb-2">
+                                        <h6><?= $produit['nom'] ?></h6>
+                                        <h5><?= $produit['prixU'] ?></h5>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                            <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                    <section id="2">
+                        <!-- Categories Beauté -->
+                        <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
+                            <h5>Meilleures offres Beauté</h5>
+                            <a href="./page/femme.php" class="text-dark"> voir Plus <i class="bi bi-chevron-right"></i></a>
+                        </div>
+                        <!-- Parcourir Produits beauté -->
+                        <div class="liste-produts product">
+                            <!-- Afficher les produitq -->
+                            <?php foreach ($produitsBienEtre as $key => $produit) : ?>
+                                <div class="box box-2 py-2 px-2 rounded-2 mt-1">
+                                    <span class="percent"> -40%</span>
+                                    <div class="card-img">
+                                        <!-- l'image du produit -->
+                                        <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                                    </div>
+                                    <div class="card-body mb-2">
+                                        <!-- nom du produit -->
+                                        <p><?= $produit['nom'] ?></p>
+                                        <!-- Prix du produit -->
+                                        <h5><?= $produit['prixU'] ?></h5>
+                                        <!-- reduction prix -->
                                         <del class="text-danger"><?= $produit['prixU'] ?></del>
                                         <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
                                     </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-                    <!-- Categories Beauté -->
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                    <section id="3">
+                        <!-- Categories Femmes -->
 
-                    <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
-                        <h5>Meilleures offres Beauté</h5>
-                        <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
-                    </div>
+                        <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
+                            <h5>Meilleures offres Femmes</h5>
+                            <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
+                        </div>
 
-                    <!-- Parcourir Produits beauté -->
-                    <div class="liste-produts product">
-                        <!-- Afficher les produitq -->
-                        <?php foreach ($produitsBienEtre as $key => $produit) : ?>
-                            <div class="box box-2 py-2 px-2 rounded-2 mt-1">
-                                <span class="percent"> -40%</span>
-                                <div class="card-img">
-                                    <!-- l'image du produit -->
-                                    <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                        <!-- Parcourir Produits beauté -->
+                        <div class="liste-produts product">
+                            <!-- Afficher les produitq -->
+                            <?php foreach ($produitsFemme as $key => $produit) : ?>
+                                <div class="box box-2 py-2 px-2 rounded-2 mt-1">
+                                    <span class="percent"> -40%</span>
+                                    <div class="card-img">
+                                        <!-- l'image du produit -->
+                                        <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                                    </div>
+                                    <div class="card-body mb-2">
+                                        <!-- nom du produit -->
+                                        <p><?= $produit['nom'] ?></p>
+                                        <!-- Prix du produit -->
+                                        <h5><?= $produit['prixU'] ?></h5>
+                                        <!-- reduction prix -->
+                                        <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                        <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                    </div>
                                 </div>
-                                <div class="card-body mb-2">
-                                    <!-- nom du produit -->
-                                    <p><?= $produit['nom'] ?></p>
-                                    <!-- Prix du produit -->
-                                    <h5><?= $produit['prixU'] ?></h5>
-                                    <!-- reduction prix -->
-                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
-                                    <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
+                    <section id="4">
+                        <!-- Categories Beauté -->
+                        <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
+                            <h5>Meilleures offre de chaussures pour Hommes</h5>
+                            <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
+                        </div>
+
+                        <!-- Parcourir Produits beauté -->
+                        <div class="liste-produts product">
+                            <!-- Afficher les produitq -->
+                            <?php foreach ($produitsHomme as $key => $produit) : ?>
+                                <div class="box box-2 py-2 px-2 rounded-2 mt-1">
+                                    <span class="percent"> -40%</span>
+                                    <div class="card-img">
+                                        <!-- l'image du produit -->
+                                        <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
+                                    </div>
+                                    <div class="card-body mb-2">
+                                        <!-- nom du produit -->
+                                        <p><?= $produit['nom'] ?></p>
+                                        <!-- Prix du produit -->
+                                        <h5><?= $produit['prixU'] ?></h5>
+                                        <!-- reduction prix -->
+                                        <del class="text-danger"><?= $produit['prixU'] ?></del>
+                                        <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
+                                    </div>
                                 </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-
-                                        <!-- Categories Beauté -->
-
-                                        <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
-                        <h5>Meilleures offres Femmes</h5>
-                        <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
-                    </div>
-
-                    <!-- Parcourir Produits beauté -->
-                    <div class="liste-produts product">
-                        <!-- Afficher les produitq -->
-                        <?php foreach ($produitsFemme as $key => $produit) : ?>
-                            <div class="box box-2 py-2 px-2 rounded-2 mt-1">
-                                <span class="percent"> -40%</span>
-                                <div class="card-img">
-                                    <!-- l'image du produit -->
-                                    <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
-                                </div>
-                                <div class="card-body mb-2">
-                                    <!-- nom du produit -->
-                                    <p><?= $produit['nom'] ?></p>
-                                    <!-- Prix du produit -->
-                                    <h5><?= $produit['prixU'] ?></h5>
-                                    <!-- reduction prix -->
-                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
-                                    <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
-                                        <!-- Categories Beauté -->
-
-                                        <div class="bg-warning mt-2 p-2 d-flex justify-content-between align-items-center">
-                        <h5>Meilleures offres Hommes</h5>
-                        <h6>voir Plus <i class="bi bi-chevron-right"></i></h6>
-                    </div>
-
-                    <!-- Parcourir Produits beauté -->
-                    <div class="liste-produts product">
-                        <!-- Afficher les produitq -->
-                        <?php foreach ($produitsHomme as $key => $produit) : ?>
-                            <div class="box box-2 py-2 px-2 rounded-2 mt-1">
-                                <span class="percent"> -40%</span>
-                                <div class="card-img">
-                                    <!-- l'image du produit -->
-                                    <img src="assets/image/<?= $produit['image'] ?>" width="150px" height="100px" alt="" />
-                                </div>
-                                <div class="card-body mb-2">
-                                    <!-- nom du produit -->
-                                    <p><?= $produit['nom'] ?></p>
-                                    <!-- Prix du produit -->
-                                    <h5><?= $produit['prixU'] ?></h5>
-                                    <!-- reduction prix -->
-                                    <del class="text-danger"><?= $produit['prixU'] ?></del>
-                                    <a href="panier/ajoutPanier.php?idProduit=<?= $produit['id'] ?>"><i class="bi bi-cart-fill fs-4 text-warning"></i></a>
-                                </div>
-                            </div>
-                        <?php endforeach; ?>
-                    </div>
-
+                            <?php endforeach; ?>
+                        </div>
+                    </section>
                 </div>
-            </div><br><br>
-
-
-
-        </div>
+            </div>
     </section>
     <!-- Categories chaussures -->
     <section>
         <div class="container">
-            <h4 class="text-center">Nos collections de chaussures Nike</h4>
+            <h4 class="text-center py-1">Nos collections de chaussures Nike</h4>
             <div class="grid">
                 <img src="./assets/image/img5.png" alt="" />
                 <img src="./assets/image/img1.png" alt="" />
                 <img src="./assets/image/img1.png" alt="" />
                 <img src="./assets/image/img3.png" alt="" />
                 <img src="./assets/image/img4.png" alt="" />
+                <img src="./assets/image/img0.png" alt="" />
+                <img src="./assets/image/img8.png" alt="" />
             </div>
         </div>
         <!-- Nouvelles arrivages de chaussures  -->

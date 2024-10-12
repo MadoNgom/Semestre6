@@ -36,11 +36,11 @@ $commandes = $transaction->getAllCommande();
          <div class="d-flex justify-content-between align-items-center">
             <!-- FIRST ROW -->
             <div class="d-none d-sm-none d-md-block">
-                    <a href="../index.php" class="nav-brand d-flex justify-content-center lign-items-center">
-                        <h4 class="nav-brand mx-2">Finshop</h4>
-                        <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
-                    </a>
-                </div>
+               <a href="../index.php" class="nav-brand d-flex justify-content-center lign-items-center">
+                  <h4 class="nav-brand mx-2">Finshop</h4>
+                  <img src="../assets/image/bg/shopping-bag.png" class="w-25" alt="" />
+               </a>
+            </div>
             <!-- SEARCH BAR -->
             <div class="my-auto">
                <form action="" role="Search">
@@ -105,8 +105,9 @@ $commandes = $transaction->getAllCommande();
                <th>Id</th>
                <th>Date</th>
                <th>MontantTOT</th>
-               <th>état</th>
-               <th>details</th>
+               <th>Etat de la commande</th>
+               <th>Details</th>
+               <th>operations</th>
             </tr>
          </thead>
          <tbody>
@@ -117,9 +118,13 @@ $commandes = $transaction->getAllCommande();
                   <td><?= $value['date'] ?></td>
                   <td><?= $value['montantTOT'] ?> cfa</td>
                   <td><?= $value['etat'] ?></td>
-                  <td> <a href="detailCommande.php?idcommande=<?= $value['id'] ?>">Voir details</a></td>
-                  <td> <a href="rejetCommande.php?idcommande=<?= $value['id'] ?>">Rejeter</a></td>
-                  <td> <a href="valideCommande.php?idcommande=<?= $value['id'] ?>">Valider</a></td>
+                  <td><a href="detailCommande.php?idcommande=<?= $value['id'] ?>" class="nav-link text-black-50">Voir details</a></td>
+                  <td>
+                     <div class="d-flex">
+                        <a href="rejetCommande.php?idcommande=<?= $value['id'] ?>" class="nav-link text-danger">Rejeter</a>
+                        <a href="valideCommande.php?idcommande=<?= $value['id'] ?>" class="nav-link text-success">Valider</a>
+                     </div>
+                  </td>
                </tr>
             <?php } ?>
          </tbody>
